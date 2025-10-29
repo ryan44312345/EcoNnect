@@ -1,34 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <style type="text/tailwindcss">
-            @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
-            @import 'tailwindcss';
-            @theme {
-                /* cores personalizadas */
-                --color-forest-green: #013A20;
-                --color-emerald-green: #478C5C;
-                --color-lint-600: #BACC81;
-                --color-lint-300: #CDD193;       
-                /* fontes personalizadas */
-                --font-young: Young Serif, serif;
-                --font-outfit: Outfit, sans-serif;
-            }
-    </style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+        
+        @import 'tailwindcss';
+        
+        @theme {
+        --font-libre: 'Libre Baskerville', sans-serif;
+        --font-teachers: 'Teachers', sans-serif;
+        --color-verde-escuro: #152409;
+        --color-laranja-claro: #f4efe5;
+        --color-laranja-pastel: #ffd580;
+        --color-cinza-escuro: #2e2e28;
+        --color-verde-acizentado: #163943;
+        --color-very-dark-blue: hsl(240, 100%, 5%);
+        --color-rose-50: #7b284f;
+        --color-rose-800: #fff5fa;
+        }
+        </style>
 </head>
 
-<body>
-    
-    <header class="bg-emerald-green h-50" >
-        <h2 class="">Home</h2>
-        <h2></h2>
+<body class="">
+    <div class="w-6 absolute z-50 top-1/30 left-9/10 sm:hidden">
+        <button class="cursor-pointer" id="menu-btn">
+            <div class="">
+                <div id="hambuguer1" class="w-6 h-1 mt-[4px] rounded-full bg-black block"></div>
+                <div id="hambuguer2" class="w-6 h-1 mt-[4px] rounded-full bg-black block"></div>
+                <div id="hambuguer3" class="w-6 h-1 mt-[4px] rounded-full bg-black block"></div>
+            </div>
+        </button>
+    </div>
+    <header class="w-full h-[89px] bg-verde-escuro top-0 left-0 z-[1000]" id="header">
+        <div class="w-full h-screen absolute transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden -right-1/7 text-laranja-claro" id="aside">
+        <div class="h-full bg-laranja-pastel w-full z-20 absolute">
+            <div class="grid-flow-col mt-18">
+                <div class="w-full border-t cursor-pointer text-black">
+                </div>
+                <div
+                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-300">
+                    <a href="registro.html">
+                        <div class="w-full">
+                            <h1 class="px-3 py-2 text-center">Inicio</h1>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-300">
+                    <a href="registro.html">
+                        <div class="w-full">
+                            <h1 class="px-3 py-2 text-center">Registro</h1>
+                        </div>
+                    </a>
+                </div>
+                <div
+                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-300">
+                    <a href="alimento.html">
+                        <div class="w-full">
+                            <h1 class="px-3 py-2 text-center">Alimentos</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-300">
+                <a href="duvida.html">
+                    <div class="w-full">
+                        <h1 class="px-3 py-2 text-center">Dúvidas</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="w-full h-full flex flex-row justify-between">
+            <div class="flex flex-row">
+                <div class="py-4 ml-8 mr-5">
+                    <img src="img/sla.png" alt="" class="h-14">
+                </div>
+                <div class="self-center text-white font-libre text-4xl text-laranja-claro">
+                    <h1>EcoNnect</h1>
+                </div>
+            </div>
+            <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
+                <div class="">
+                    <a href="" id="inicio">Inicio</a>
+                </div>
+                <div class="">
+                    <a href="" id="sobre">Sobre</a>
+                </div>
+                <div class="flex flex-row gap-1" id="btn-idioma">
+                    <div class="mt-1">
+                        <button class="cursor-pointer">
+                            <img src="img/11654500.png" alt="" class="size-5">
+                        </button>
+                    </div>
+                    <div class="">
+                        <button class="cursor-pointer" id="txt-idioma">Troca de idioma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
+    <main id="main">
+        <section class="pt-[89px]" id="smooth-wrapper">
+            <div class="" id="smooth-content">
+                <section class="bg-[url(img/0.png)] h-screen w-full bg-no-repeat bg-cover md:bg-center">
+                    <div class="h-screen text-white font-libre">
+                        <div class="relative top-1/4">
+                            <div class="flex flex-col">
+                                <div class="xl:text-3xl lg:text-2xl text-xl md:ml-20 ml-10 mb-10">
+                                    <h2 id="subtitle-educacao">Educação Ambiental</h2>
+                                </div>
+                                <div class="xl:text-9xl lg:text-8xl text-7xl md:ml-20 ml-10 md:mb-21 mb-15">
+                                    <h2>EcoNnect</h2>
+                                </div>
+                                <div class="flex md:flex-row flex-col justify-between">
+                                    <div class="xl:text-3xl lg:text-2xl text-xl md:ml-20 ml-10 mb-12">
+                                        <h2 id="inspirando">Inspirando o consumo consciente a nova geração</h2>
+                                    </div>
+                                    <div class="self-center text-cinza-escuro xl:mr-40 md:mr-10 x border rounded-full">
+                                        <button
+                                            class="bg-laranja-pastel xl:px-20 px-15 py-5 rounded-full border cursor-pointer"
+                                            id="btn-ler">
+                                            Ler mais
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container flex flex-row flex-nowrap w-full h-full">
+                <section class="secao h-screen bg-cinza-escuro w-screen flex-none">
+                    <div class="flex flex-col">
+                    <h2 class="text-center text-laranja-claro font-medium font-libre text-6xl mt-6 italic">Introdução</h2>
+                    <p class="font-teachers text-center text-laranja-claro text-lg font-medium mt-6">A <span class="text-laranja-pastel font-bold">Urgência</span> do Uso Consciente dos Recursos Naturais</p>
+                    <div class="mx-auto mt-5 w-[700px]">
+                        <img src="img/Gemini_Generated_Image_aylyafaylyafayly.png" alt="" class="rounded-3xl">
+                    </div>
+                    <div class="mx-auto mt-3 w-[700px]">
+                        <p class="font-teachers text-laranja-claro text-md"><span class="font-bold text-laranja-pastel">A Fundação do Nosso Conforto: Transformando a Natureza em Recursos Essenciais.</span> <br> Alcançamos uma era de domínio sobre o mundo natural, onde o progresso material e o conforto se tornaram a medida do nosso sucesso como civilização. Cada avanço, cada cidade iluminada e cada produto em nossas mãos é um testemunho da nossa habilidade de converter os elementos brutos do planeta nos alicerces do nosso desenvolvimento diário..</p>
+                    </div>
+                    </div>
+                </section>
+                <section class="secao h-screen bg-gray-800 w-screen flex-none">
+                    <div class="flex flex-col">
+                    <h2 class="text-center text-laranja-claro font-medium font-libre text-6xl mt-6 italic">Introdução</h2>
+                    <p class="font-teachers text-center text-laranja-claro text-lg font-medium mt-6">A <span class="text-laranja-pastel font-bold">Urgência</span> do Uso Consciente dos Recursos Naturais</p>
+                    <div class="mx-auto mt-5">
+                        <img src="img/image.png" alt="" class="rounded-3xl w-[700px]">
+                    </div>
+                    <div class="mx-auto mt-3 w-[700px]">
+                        <p class="font-teachers text-laranja-claro text-md"><span class="font-bold text-laranja-pastel">A Fundação do Nosso Conforto: Transformando a Natureza em Recursos Essenciais.</span> <br> Alcançamos uma era de domínio sobre o mundo natural, onde o progresso material e o conforto se tornaram a medida do nosso sucesso como civilização. Cada avanço, cada cidade iluminada e cada produto em nossas mãos é um testemunho da nossa habilidade de converter os elementos brutos do planeta nos alicerces do nosso desenvolvimento diário..</p>
+                    </div>
+                    </div>
+                </section>
+                <section class="secao h-screen bg-cinza-escuro w-screen flex-none">
+                    <div class="flex flex-col">
+                    <h2 class="text-center text-laranja-claro font-medium font-libre text-6xl mt-6 italic">Introdução</h2>
+                    <p class="font-teachers text-center text-laranja-claro text-lg font-medium mt-6">A <span class="text-laranja-pastel font-bold">Urgência</span> do Uso Consciente dos Recursos Naturais</p>
+                    <div class="mx-auto mt-5">
+                        <img src="img/Captura de tela 2025-10-29 031310.png" alt="" class="rounded-3xl w-[700px]">
+                    </div>
+                    <div class="mx-auto mt-3 w-[700px]">
+                        <p class="font-teachers text-laranja-claro text-md"><span class="font-bold text-laranja-pastel">A Fundação do Nosso Conforto: Transformando a Natureza em Recursos Essenciais.</span> <br> Alcançamos uma era de domínio sobre o mundo natural, onde o progresso material e o conforto se tornaram a medida do nosso sucesso como civilização. Cada avanço, cada cidade iluminada e cada produto em nossas mãos é um testemunho da nossa habilidade de converter os elementos brutos do planeta nos alicerces do nosso desenvolvimento diário..</p>
+                    </div>
+                    </div>
+                </section>
+            </div>
+            <section class="bg-[url(img/background_problema.png)] h-screen bg-no-repeat bg-cover flex items-center justify-center">
+                <div class="mx-auto h-[500px] w-[1300px] bg-cinza-escuro rounded-3xl border border-laranja-pastel border-2">
+                    <h2 class="font-medium font-libre italic text-center text-laranja-claro text-4xl mt-10">Onde ocorre?</h2>
+                    <p class="font-teachers text-laranja-claro text-center mt-3 mb-15">O fenômeno é global, mas assume diferentes intensidades dependendo da região:</p>
+                    <div class="grid grid-cols-4 w-[800px] gap-5 mx-auto">
+                    <div class="relative">
+                        <img src="img/image (1).png" alt="" class="size-50 object-cover rounded-2xl brightness-50">
+                        <p class="absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5">Uso irrestrito na Amazônia</p>
+                    </div>
+                    <div class="relative">
+                        <img src="img/image (1).png" alt="" class="size-50 object-cover rounded-2xl brightness-50">
+                        <p class="absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5">Uso irrestrito na Amazônia</p>
+                    </div>
+                    <div class="relative">
+                        <img src="img/image (1).png" alt="" class="size-50 object-cover rounded-2xl brightness-50">
+                        <p class="absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5">Uso irrestrito na Amazônia</p>
+                    </div>
+                    <div class="relative">
+                        <img src="img/image (1).png" alt="" class="size-50 object-cover rounded-2xl brightness-50">
+                        <p class="absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5">Uso irrestrito na Amazônia</p>
+                    </div>
+                    <div class="mx-auto">
+                    <button class="bg-laranja-pastel px-6 py-2 cursor-pointer rounded-full border">Ver mais</button>
+                </div>
+                <div class="mx-auto">
+                    <button class="bg-laranja-pastel px-6 py-2 cursor-pointer rounded-full border">Ver mais</button>
+                </div>
+                <div class="mx-auto">
+                    <button class="bg-laranja-pastel px-6 py-2 cursor-pointer rounded-full border">Ver mais</button>
+                </div>
+                <div class="mx-auto">
+                    <button class="bg-laranja-pastel px-6 py-2 cursor-pointer rounded-full border">Ver mais</button>
+                </div>
+                </div>
+                </div>
+                
+            </section>
+        </section>
+    </main>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+
+    <script src="index.js"></script>
+    <script src="anime.js"></script>
+    <script src="scrollanimate.js"></script>
 </body>
 
 </html>
