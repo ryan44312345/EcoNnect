@@ -26,7 +26,6 @@ window.addEventListener('load', () => {
                 end: "+=4000",
                 scrub: true,
                 pin: true,
-                markers: true
             }
         });
 
