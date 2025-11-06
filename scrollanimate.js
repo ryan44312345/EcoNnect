@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
         smooth: 1.5,
         effects: true,
         normalizeScroll: true,
-        smoothTouch: 0.1
+        smoothTouch: 1
     });
 
     // Selecionar elementos para scroll horizontal
@@ -26,13 +26,17 @@ window.addEventListener('load', () => {
                 end: "+=4000",
                 scrub: true,
                 pin: true,
+                markers: true,
             }
         });
 
         // estado inicial das seções (se quiser animar a partir de um layout específico)
 
         // movimento geral horizontal (pode ajustar depois se quiser)
-        tl.to(secoes, { xPercent: -100 * (secoes.length - 1), ease: "none" }, 0);
+        tl.to(secoes, { 
+                xPercent: -100 * (secoes.length - 1),
+                ease: "none"
+             }, 0);
 
         // agora as transições entre as seções
 
