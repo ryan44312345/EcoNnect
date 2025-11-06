@@ -1,152 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <title>Slides 3D + ScrollTrigger (+ ScrollSmoother fallback)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Tailwind -->
+  <meta charset="UTF-8">
+  <title>GSAP ScrollTrigger + ScrollSmoother + translate3d</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- GSAP core + plugins (ordem importa) -->
-  <style>
-      html,body { height:100%; }
-      #slides-wrapper { perspective: 1000px; -webkit-perspective:1000px; }
-    .slide { transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
-    /* fallback visual para quando ScrollSmoother não existir */
-    .no-smoother body { scroll-behavior: smooth; }
-  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script>
 </head>
-<body class="bg-gray-900 text-white">
-    
+
+<body class="bg-gray-900 text-white overflow-hidden">
+
+  <!-- 🔹 ScrollSmoother wrapper -->
   <div id="smooth-wrapper">
-      <div id="smooth-content">
-
-          <section class="h-screen flex items-center justify-center bg-gray-900">
-        <h1 class="text-4xl font-bold">Role para ver os slides 3D ➡️</h1>
-      </section>
+    <div id="smooth-content">
       
-      <!-- wrapper de slides -->
-      <section id="slides-wrapper" class="relative h-screen flex overflow-hidden bg-gradient-to-b from-gray-800 to-gray-900">
-        <div class="slide w-full h-full flex items-center justify-center bg-green-500 text-3xl font-bold">Slide 1</div>
-        <div class="slide w-full h-full flex items-center justify-center bg-blue-500 text-3xl font-bold">Slide 2</div>
-        <div class="slide w-full h-full flex items-center justify-center bg-pink-500 text-3xl font-bold">Slide 3</div>
-        <div class="slide w-full h-full flex items-center justify-center bg-yellow-400 text-3xl font-bold text-gray-900">Slide 4</div>
-    </section>
-
-      <section class="h-screen flex items-center justify-center bg-gray-900">
-        <h2 class="text-3xl">Fim 🎬</h2>
+      <!-- Seção inicial -->
+      <section class="h-screen flex items-center justify-center text-4xl font-bold bg-gradient-to-b from-gray-800 to-gray-900">
+        Role para baixo ⬇️
       </section>
-      
+
+      <!-- 🔸 Seção animada -->
+      <section id="slide" class="relative h-screen flex items-center justify-center bg-gray-800 overflow-hidden perspective-[1000px]">
+        <div id="box" class="w-40 h-40 bg-green-500 rounded-2xl shadow-2xl"></div>
+      </section>
+
+      <!-- Seção final -->
+      <section class="h-screen flex items-center justify-center text-3xl bg-gray-900">
+        Fim 🎬
+      </section>
+
     </div>
-</div>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollSmoother.min.js"></script>
-<script>
-    // registra plugins
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // tenta registrar ScrollSmoother se estiver carregado
-    if (typeof ScrollSmoother !== "undefined") {
-      gsap.registerPlugin(ScrollSmoother);
-    } else {
-      console.warn("ScrollSmoother não definido — usando fallback sem ScrollSmoother.");
-      document.documentElement.classList.add("no-smoother");
-    }
+  <script>
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-    // --- Cria ScrollSmoother se disponível; senão, deixa null e usa fallback ---
-    let smoother = null;
-    try {
-      if (typeof ScrollSmoother !== "undefined") {
-        smoother = ScrollSmoother.create({
-          wrapper: "#smooth-wrapper",
-          content: "#smooth-content",
-          smooth: 1.3,
-          effects: true
-        });
-      } else {
-        // fallback leve: não usa ScrollSmoother, mas ScrollTrigger continuará funcionando
-        smoother = null;
-      }
-    } catch (err) {
-      console.warn("Erro ao criar ScrollSmoother:", err);
-      smoother = null;
-    }
-
-    // Seleciona slides
-    const slides = gsap.utils.toArray(".slide");
-
-    // Coloca slides lado a lado (cada slide 100% da viewport)
-    slides.forEach((s, i) => {
-      gsap.set(s, { xPercent: i * 100 });
+    // 🔹 Ativa o ScrollSmoother
+    const smoother = ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+      smooth: 1.5, // suavidade da rolagem
+      effects: true,
     });
 
-    // Calcula duração do scroll com base no número de slides
-    const totalPercent = 100 * (slides.length - 1);
-
-    // Timeline que move os slides horizontalmente
+    // 🔸 Cria uma animação 3D com ScrollTrigger
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#slides-wrapper",
-        // start/end: usamos funções para serem robustas com ou sem smoother
-        start: "top top",
-        end: () => `+=${slides.length * 100}%`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        // markers: true, // descomente para depurar positions
+        trigger: "#slide",       // seção alvo
+        start: "top center",     // quando o topo da seção chega ao centro da tela
+        end: "bottom center",    // até o fim da seção
+        scrub: true,             // anima conforme o scroll (scrub suave)
       }
     });
 
-    // anima os slides para a esquerda; xPercent negativo para revelar os seguintes
-    tl.to(slides, {
-      xPercent: -totalPercent, // equivalente a -100 * (slides.length - 1)
-      ease: "none",
-      // z animado pode dar sensação 3D; aqui apenas um leve ajuste
-      onUpdate: () => { /* opcional: lógica extra */ }
-    });
+    // 🔹 Aplica uma transformação 3D progressiva conforme o scroll
+    tl.fromTo("#box",
+      { xPercent: -50, yPercent: -50, z: -300, opacity: 0.3 },
+      { xPercent: -50, yPercent: -50, z: 200, opacity: 1, ease: "power2.inOut" }
+    );
 
-    // PARALLAX MOUSE (aplica ao wrapper)
-    const wrapper = document.querySelector("#slides-wrapper");
-    let mouseTween;
+    // 🔸 Movimento do mouse (parallax leve)
+    const box = document.querySelector("#box");
+    const slide = document.querySelector("#slide");
 
-    wrapper.addEventListener("mousemove", (e) => {
-      const rect = wrapper.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
+    slide.addEventListener("mousemove", (e) => {
+      const { width, height, left, top } = slide.getBoundingClientRect();
+      const x = e.clientX - left - width / 2;
+      const y = e.clientY - top - height / 2;
 
-      const dx = e.clientX - cx;
-      const dy = e.clientY - cy;
-
-      // kill tween anterior pra não empilhar
-      if (mouseTween) mouseTween.kill();
-
-      // animação leve de parallax para cada slide (transform relativo)
-      mouseTween = gsap.to(slides, {
-        x: (i) => dx * 0.02,  // leve deslocamento horizontal acumulado
-        y: (i) => dy * 0.01,  // leve deslocamento vertical
-        rotationY: (i) => dx * 0.02,
-        rotationX: (i) => -dy * 0.02,
-        duration: 0.6,
+      // movimento suave do mouse afetando o translate3d
+      gsap.to(box, {
+        x: x * 0.1, // reduz intensidade
+        y: y * 0.1,
+        duration: 0.4,
         ease: "power2.out",
-        overwrite: true
       });
     });
-
-    wrapper.addEventListener("mouseleave", () => {
-      if (mouseTween) mouseTween.kill();
-      gsap.to(slides, { x: 0, y: 0, rotationX: 0, rotationY: 0, duration: 0.8, ease: "power2.out" });
-    });
-
-    // --- Dicas de debug caso ainda dê problema ---
-    // 1) Abra o console (F12) e veja se há erro de carregamento dos .js (404).
-    // 2) Se ScrollSmoother não carregar, verifique se o arquivo está sendo bloqueado pela política do CDN/local.
-    // 3) Ative markers no ScrollTrigger para inspecionar start/end/pin: adicione markers: true no config do scrollTrigger acima.
-    // 4) Se usar bundler (Vite/Parcel), prefira importar via npm em vez de CDN.
-
-    // opcional: ajustar comportamento caso queira usar factor -150 sugerido
-    // ex: tl.to(slides, { xPercent: -150 * (slides.length - 1), ease: "none" });
   </script>
 </body>
 </html>

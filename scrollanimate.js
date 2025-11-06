@@ -31,12 +31,10 @@ window.addEventListener('load', () => {
         });
 
         // estado inicial das seções (se quiser animar a partir de um layout específico)
-
+        tl.set(secoes[0], {xPercent: -20})
+        tl.set(secoes[1], {xPercent: -60, })
         // movimento geral horizontal (pode ajustar depois se quiser)
-        tl.to(secoes, { 
-                xPercent: -100 * (secoes.length - 1),
-                ease: "none"
-             }, 0);
+        tl.to(secoes, { xPercent: -100 * (secoes.length - 1), ease: "none"}, 0)
 
         // agora as transições entre as seções
 
