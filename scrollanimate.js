@@ -109,9 +109,72 @@ var cards = document.querySelectorAll(".cards");
 
 for(var i = 0; i < cards.length; i++){
   cards[i].addEventListener("mouseenter", function(){
+    var subtitulo = this.querySelector(".subtitulos");
+    var texto = this.querySelector(".texto");
+    
+    // Cancela animações anteriores antes de iniciar novas
+    gsap.killTweensOf([this, subtitulo, texto]);
+    
     gsap.to(this, 1, {width: 540, ease: "expo.inOut"});
+    gsap.to(subtitulo, {y: -150, duration: 1, ease: "expo.inOut"});
+    gsap.to(texto, {opacity: 1, duration: 1.75, ease: "expo.inOut"});
   })
+  
   cards[i].addEventListener("mouseleave", function(){
+    var subtitulo = this.querySelector(".subtitulos");
+    var texto = this.querySelector(".texto");
+    
+    // Cancela animações anteriores antes de iniciar novas
+    gsap.killTweensOf([this, subtitulo, texto]);
+    
     gsap.to(this, 1, {width: 400, ease: "expo.inOut"});
+    gsap.to(subtitulo, {y: 0, duration: 1, ease: "expo.inOut"});
+    gsap.to(texto, {opacity: 0, duration: 0.75});
   })
 }
+
+// colocar uma class para selecionar os textos do footer
+// para mover os icones coloque uma class diferente do texto e anime
+
+// Criar splits para todos os textos do footer
+var footer = document.querySelectorAll(".footer-text");
+
+let footerSplits = SplitText.create(footer, {
+    type: "chars, words, lines",
+    wordClass: "word++",
+});
+
+// Animar as letras quando a seção entrar na viewport
+gsap.from(footerSplits.chars, {
+    scrollTrigger: {
+        trigger: '.section-footer', // ou use um ID específico para a seção
+        start: 'top 80%', // Inicia quando o topo da seção está a 80% da viewport
+        toggleActions: 'play none none reverse', // play ao entrar, reverse ao sair
+        markers: true,
+    },
+    y: 50,
+    autoAlpha: 0,
+    rotation: -15,
+    stagger: {
+        amount: 0.8, // Distribui a animação ao longo de 0.8s
+        from: "start"
+    },
+    duration: 0.8,
+    ease: "back.out(1.7)"
+});
+
+// Animar os SVGs dos ícones sociais
+gsap.from('.bg-black svg', {
+    scrollTrigger: {
+        trigger: '.bg-black',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+    },
+    scale: 0,
+    rotation: 360,
+    autoAlpha: 0,
+    stagger: 0.15,
+    duration: 1,
+    ease: "elastic.out(1, 0.5)",
+    delay: 0.5 // Começa depois das letras
+});
