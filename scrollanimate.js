@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 // Aguardar o carregamento completo da página
 window.addEventListener('load', () => {
@@ -12,9 +12,44 @@ window.addEventListener('load', () => {
         smoothTouch: 1
     });
 
+    let split = SplitText.create('.subtitle-educacao', {
+        type: "chars, words, lines",
+        wordClass: "word++",
+    });
+
+    let split2 = SplitText.create('.econnect', {
+        type: "chars, words, lines",
+        wordClass: "word++",
+    });
+
+    let split3 = SplitText.create('.inspirando', {
+        type: "chars, words, lines",
+        wordClass: "word++",
+    });
+
+    gsap.from(split.lines , {
+        y: 100,
+        autoAlpha: 0,
+        stagger: 0.05,
+    });
+
+    gsap.from(split2.chars , {
+        y: 150,
+        autoAlpha: 0,
+        stagger: 0.08,
+    });
+
+    gsap.from(split3.lines , {
+        y: 150,
+        autoAlpha: 0,
+        stagger: 0.05,
+    });
+
     // Selecionar elementos para scroll horizontal
     let secoes = document.querySelectorAll('.secao');
     let container = document.querySelector('.container');
+
+
 
     // Verificar se os elementos existem
     if (secoes.length > 0 && container) {
@@ -30,11 +65,22 @@ window.addEventListener('load', () => {
             }
         });
 
+        tl.set(secoes[2], { 
+            clipPath: "polygon(90% 0%, 100% 0%, 100% 100%, 90% 100%)"
+        });
+        tl.set(secoes[1], { 
+            clipPath: "polygon(90% 0%, 100% 0%, 100% 100%, 90% 100%)",
+        });
         // estado inicial das seções (se quiser animar a partir de um layout específico)
-        tl.set(secoes[0], {xPercent: -20})
-        tl.set(secoes[1], {xPercent: -60, })
         // movimento geral horizontal (pode ajustar depois se quiser)
-        tl.to(secoes, { xPercent: -100 * (secoes.length - 1), ease: "none"}, 0)
+        tl.to(secoes[1], {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "none",
+        }, 0)
+        .to(secoes[2], {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "none",
+        }, 0.5);
 
         // agora as transições entre as seções
 
@@ -57,3 +103,15 @@ window.addEventListener('resize', () => {
         ScrollTrigger.refresh();
     }, 250);
 });
+
+
+var cards = document.querySelectorAll(".cards");
+
+for(var i = 0; i < cards.length; i++){
+  cards[i].addEventListener("mouseenter", function(){
+    gsap.to(this, 1, {width: 540, ease: "expo.inOut"});
+  })
+  cards[i].addEventListener("mouseleave", function(){
+    gsap.to(this, 1, {width: 400, ease: "expo.inOut"});
+  })
+}
