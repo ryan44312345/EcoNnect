@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
         smooth: 1,
         effects: true,
         normalizeScroll: true,
-        smoothTouch: 0.1
+        smoothTouch: 0.5
     });
 
     let split = SplitText.create('.subtitle-educacao', {
@@ -176,15 +176,15 @@ window.addEventListener('load', () => {
 
         // Criar animação para cada painel (exceto o último)
         panels.forEach((panel, index) => {
-            if (index < panels.length - 1) {
+            if (index < panels.length + 1) {
                 gsap.to(panel, {
                     scrollTrigger: {
                         trigger: panel,
                         start: 'top top',
-                        end: '1000px',
+                        end: '+=100%',
                         pin: true,
                         pinSpacing: false,
-                        scrub: true,
+                        scrub: 1,
                     }
                 });
             }
