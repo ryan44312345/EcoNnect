@@ -16,10 +16,10 @@ window.addEventListener('load', () => {
     ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.5,
+        smooth: 1,
         effects: true,
         normalizeScroll: true,
-        smoothTouch: 1
+        smoothTouch: 0.1
     });
 
     let split = SplitText.create('.subtitle-educacao', {
@@ -169,7 +169,30 @@ window.addEventListener('load', () => {
             ease: "elastic.out(1, 0.5)",
             delay: 0.5 // Começa depois das letras
         });
+    } else {
+        // Código específico para dispositivos móveis (mobile)
+        // Aqui você pode adicionar animações ou ajustes específicos para telas menores
+        const panels = gsap.utils.toArray('.secao');
+
+        // Criar animação para cada painel (exceto o último)
+        panels.forEach((panel, index) => {
+            if (index < panels.length - 1) {
+                gsap.to(panel, {
+                    scrollTrigger: {
+                        trigger: panel,
+                        start: 'top top',
+                        end: '1000px',
+                        pin: true,
+                        pinSpacing: false,
+                        scrub: true,
+                    }
+                });
+            }
+        });
     }
+    document.querySelector('#btn-ler').addEventListener('click', () => {
+      window.scrollTo({ top: 1100, behavior: 'smooth' });
+    });
 
     // Refresh do ScrollTrigger após inicialização
     ScrollTrigger.refresh();

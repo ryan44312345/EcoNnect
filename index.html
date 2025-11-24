@@ -42,7 +42,7 @@
         <section id="smooth-wrapper">
             <div id="smooth-content">
                 <!-- HEADER MOVIDO PARA DENTRO -->
-                <header class="w-full h-[89px] bg-verde-escuro sticky top-0 left-0 z-[1000]" id="header">
+                <header class="w-full h-[89px] bg-verde-escuro" id="header">
                     <!-- Menu lateral mobile -->
                     <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0"
                         id="aside">
@@ -124,7 +124,7 @@
                                 <div class="xl:text-3xl lg:text-2xl text-xl md:ml-20 ml-10 mb-10">
                                     <h2 id="subtitle-educacao" class="subtitle-educacao">Educação Ambiental</h2>
                                 </div>
-                                <div class="xl:text-9xl lg:text-8xl text-7xl md:ml-20 ml-10 md:mb-21 mb-15">
+                                <div class="xl:text-9xl lg:lg:text-8xl text-7xl md:ml-20 ml-10 md:mb-21 mb-15">
                                     <h1 class="econnect">EcoNnect</h1>
                                 </div>
                                 <div class="flex md:flex-row flex-col justify-between">
@@ -147,20 +147,20 @@
 
                 <!-- CONTAINER COM CONTEÚDOS SOBREPOSTOS -->
                 <div class="container relative h-screen">
-                    <section class="secao absolute h-screen bg-cinza-escuro w-screen flex-none top-0 left-0 z-10">
-                        <div class="flex flex-col">
-                            <h2 class="text-center text-laranja-claro font-medium font-libre text-8xl mt-6 italic">
+                    <section class="secao lg:absolute h-full lg:h-screen bg-cinza-escuro w-screen flex-none top-0 left-0 z-10">
+                        <div class="flex flex-col px-4 py-5">
+                            <h2 class="text-center text-laranja-claro font-medium font-libre text-5xl lg:text-8xl mt-6 italic">
                                 Introdução</h2>
-                            <p class="font-teachers text-center text-laranja-claro text-2xl font-medium mt-6">A <span
+                            <p class="font-teachers text-center text-laranja-claro text-xl font-medium mt-6">A <span
                                     class="text-laranja-pastel font-bold">Urgência</span> do Uso Consciente dos Recursos
                                 Naturais</p>
-                            <div class="mx-auto mt-5 w-[900px]">
+                            <div class="mx-auto mt-5 lg:w-[900px]">
                                 <img src="img/Gemini_Generated_Image_aylyafaylyafayly.png" alt="Recursos Naturais"
                                     class="rounded-3xl">
                             </div>
-                            <div class="mx-auto mt-3 w-[900px]">
-                                <p class="font-teachers text-laranja-claro text-xl"><span
-                                        class="font-bold text-laranja-pastel text-2xl">O Nosso Conforto transformando a
+                            <div class="mx-auto mt-3 lg:w-[900px]">
+                                <p class="font-teachers text-laranja-claro"><span
+                                        class="font-bold text-laranja-pastel text-lg">O Nosso Conforto transformando a
                                         Natureza em Recursos Essenciais.</span> <br> Alcançamos uma era de domínio sobre
                                     o mundo natural, onde o progresso material e o conforto se tornaram a medida do
                                     nosso sucesso como civilização. Cada avanço, cada cidade iluminada e cada produto em
@@ -170,9 +170,9 @@
                         </div>
                     </section>
 
-                    <section class="secao absolute h-screen bg-cinza-escuro w-screen flex-none top-0 left-0 z-20">
+                    <section class="secao lg:absolute h-screen bg-cinza-escuro w-screen flex-none top-0 left-0 z-20">
                         <div class="flex flex-col">
-                            <h2 class="text-center text-laranja-claro font-medium font-libre text-8xl mt-6 italic">
+                            <h2 class="text-center text-laranja-claro font-medium font-libre lg:text-8xl mt-6 italic">
                                 Introdução</h2>
                             <p class="font-teachers text-center text-laranja-claro text-2xl font-medium mt-6">A <span
                                     class="text-laranja-pastel font-bold">Urgência</span> do Uso Consciente dos Recursos
@@ -193,9 +193,9 @@
                         </div>
                     </section>
 
-                    <section class="secao absolute h-screen bg-cinza-escuro w-screen flex-none top-0 left-0 z-30">
+                    <section class="secao lg:absolute h-screen bg-cinza-escuro w-screen flex-none top-0 left-0 z-30">
                         <div class="flex flex-col">
-                            <h2 class="text-center text-laranja-claro font-medium font-libre text-8xl mt-6 italic">
+                            <h2 class="text-center text-laranja-claro font-medium font-libre lg:text-8xl mt-6 italic">
                                 Introdução</h2>
                             <p class="font-teachers text-center text-laranja-claro text-2xl font-medium mt-6">A <span
                                     class="text-laranja-pastel font-bold">Urgência</span> do Uso Consciente dos Recursos
@@ -219,11 +219,11 @@
 
                 <!-- SEÇÃO ONDE OCORRE -->
                 <section
-                    class="bg-[url(img/background_problema.png)] h-full bg-no-repeat bg-cover flex items-center justify-center px-5 py-15">
+                    class="bg-[url(img/background_problema.png)] min-h-dvh   bg-no-repeat bg-cover flex items-center justify-center px-5 py-15">
 
 
                     <div class="flex flex-col max-w-full gap-5 items-center h-full">
-                        <h2 class="font-medium font-libre italic text-center text-laranja-claro text-8xl mb-3">Onde
+                        <h2 class="font-medium font-libre italic text-center text-laranja-claro lg:text-8xl mb-3">Onde
                             ocorre?</h2>
                         <p class="font-teachers text-laranja-claro text-center text-2xl font-bold mt-3 mb-5">O <span
                                 class="text-laranja-pastel">fenômeno é global</span>, mas
@@ -264,7 +264,7 @@
                     </div>
                 </section>
                 <section class="h-screen w-screen bg-cinza-escuro flex flex-col">
-                    <h2 class="text-center text-laranja-claro font-medium font-libre text-8xl mt-10 italic">Como
+                    <h2 class="text-center text-laranja-claro font-medium font-libre lg:text-8xl mt-10 italic">Como
                         resolver esse problema?
                     </h2>
                     <div class="flex flex-col max-w-full gap-5 items-center h-full">
@@ -333,7 +333,7 @@
                 <section
                     class="bg-[url(img/doacao.png)] h-screen bg-no-repeat bg-cover flex items-center justify-center">
                     <div
-                        class="mx-auto h-[800px] w-[1400px] bg-cinza-escuro rounded-3xl border border-laranja-pastel border-2">
+                        class="mx-auto h-[800px] w-[1400px] bg-cinza-escuro rounded-3xl border-laranja-pastel border-2">
                         <h2 class="font-medium font-libre italic text-center text-laranja-claro text-7xl mt-10">Doação
                             para a ONG</h2>
                         <p class="font-teachers text-laranja-claro text-center text-2xl mt-7 mb-15">Contribua para um
