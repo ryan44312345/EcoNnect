@@ -3,133 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scroll Vertical GSAP</title>
+  <title>Scroll Vertical Animado</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
       overflow-x: hidden;
     }
-    .panel {
-      min-height: 100vh;
-      width: 100%;
+    
+    #animated-container {
       position: relative;
+      width: 100%;
+    }
+    
+    .section-pin {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
     }
   </style>
 </head>
 <body class="bg-gray-900">
   
-  <section id="container" class="relative">
+  <!-- Container das Sections Animadas -->
+  <div id="animated-container">
     
-    <!-- Seção 1 -->
-    <div class="panel bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
-      <div class="text-center px-6">
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">Seção 01</h1>
-        <p class="text-xl text-white/90">Role para baixo</p>
-        <div class="mt-8">
-          <div class="animate-bounce inline-block">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </div>
+    <!-- Section 1 - Azul -->
+    <section class="section-pin bg-blue-600">
+      <div class="text-center text-white">
+        <h2 class="text-6xl font-bold mb-4">Section 1</h2>
+        <p class="text-2xl">Role para baixo</p>
       </div>
-    </div>
-
-    <!-- Seção 2 -->
-    <div class="panel bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center">
-      <div class="text-center px-6">
-        <h2 class="text-5xl md:text-7xl font-bold text-white mb-4">Seção 02</h2>
-        <p class="text-xl text-white/90">A anterior ficou fixa</p>
-        <div class="grid grid-cols-2 gap-4 mt-8 max-w-md mx-auto">
-          <div class="bg-white/20 backdrop-blur-sm p-6 rounded-lg">
-            <div class="text-3xl mb-2">🚀</div>
-            <p class="text-white font-semibold">Rápido</p>
-          </div>
-          <div class="bg-white/20 backdrop-blur-sm p-6 rounded-lg">
-            <div class="text-3xl mb-2">✨</div>
-            <p class="text-white font-semibold">Suave</p>
-          </div>
-        </div>
+    </section>
+    
+    <!-- Section 2 - Verde -->
+    <section class="section-pin bg-green-600">
+      <div class="text-center text-white">
+        <h2 class="text-6xl font-bold mb-4">Section 2</h2>
+        <p class="text-2xl">Continue rolando</p>
       </div>
-    </div>
-
-    <!-- Seção 3 -->
-    <div class="panel bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
-      <div class="text-center px-6">
-        <h2 class="text-5xl md:text-7xl font-bold text-white mb-4">Seção 03</h2>
-        <p class="text-xl text-white/90">Continue rolando</p>
-        <div class="mt-8 space-y-4 max-w-md mx-auto">
-          <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg text-left">
-            <p class="text-white">✓ Efeito de sobreposição</p>
-          </div>
-          <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg text-left">
-            <p class="text-white">✓ Animação suave com GSAP</p>
-          </div>
-          <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg text-left">
-            <p class="text-white">✓ Estilizado com Tailwind</p>
-          </div>
-        </div>
+    </section>
+    
+    <!-- Section 3 - Roxo -->
+    <section class="section-pin bg-purple-600">
+      <div class="text-center text-white">
+        <h2 class="text-6xl font-bold mb-4">Section 3</h2>
+        <p class="text-2xl">Última section animada</p>
       </div>
+    </section>
+    
+  </div>
+  
+  <!-- Sections Normais (Sem Animação) -->
+  <section class="h-screen w-full flex items-center justify-center bg-red-500">
+    <div class="text-center text-white">
+      <h2 class="text-5xl font-bold mb-4">Section Normal 1</h2>
+      <p class="text-xl">Conteúdo sem animação</p>
     </div>
-
-    <!-- Seção 4 -->
-    <div class="panel bg-gradient-to-br from-yellow-500 to-red-500 flex items-center justify-center">
-      <div class="text-center px-6">
-        <h2 class="text-5xl md:text-7xl font-bold text-white mb-4">Seção 04</h2>
-        <p class="text-xl text-white/90">Quase no final</p>
-        <div class="mt-8">
-          <div class="bg-white/20 backdrop-blur-sm p-8 rounded-2xl max-w-md mx-auto">
-            <div class="text-6xl mb-4">🎨</div>
-            <p class="text-white text-lg">Cada seção com seu gradiente único</p>
-          </div>
-        </div>
-      </div>
+  </section>
+  
+  <section class="h-screen w-full flex items-center justify-center bg-yellow-500">
+    <div class="text-center text-white">
+      <h2 class="text-5xl font-bold mb-4">Section Normal 2</h2>
+      <p class="text-xl">A animação terminou aqui</p>
     </div>
-
-    <!-- Seção 5 -->
-    <div class="panel bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center">
-      <div class="text-center px-6">
-        <h2 class="text-5xl md:text-7xl font-bold text-white mb-4">Seção 05</h2>
-        <p class="text-xl text-white/90">Fim da jornada</p>
-        <div class="mt-8">
-          <button class="bg-white text-purple-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-purple-100 transition-colors">
-            Voltar ao topo
-          </button>
-        </div>
-      </div>
+  </section>
+  
+  <section class="h-screen w-full flex items-center justify-center bg-pink-500">
+    <div class="text-center text-white">
+      <h2 class="text-5xl font-bold mb-4">Section Normal 3</h2>
+      <p class="text-xl">Scroll normal</p>
     </div>
-
   </section>
 
   <script>
     // Registrar o plugin ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Selecionar todos os painéis
-    const panels = gsap.utils.toArray('.panel');
-
-    // Criar animação para cada painel (exceto o último)
-    panels.forEach((panel, index) => {
-      if (index < panels.length - 1) {
-        gsap.to(panel, {
+    // Aguardar o carregamento completo
+    window.addEventListener('load', () => {
+      
+      const container = document.getElementById('animated-container');
+      const sections = document.querySelectorAll('.section-pin');
+      
+      // Cada section precisa de espaço para animar
+      // Definir altura do container: (número de sections - 1) * 100vh + 100vh
+      // Para 3 sections: 2 * 100vh (animação) + 100vh (última section) = 300vh
+      const containerHeight = (sections.length - 1) * 100 + 100;
+      container.style.height = `${containerHeight}vh`;
+      
+      // Configurar cada section
+      sections.forEach((section, index) => {
+        // Todas as sections são sticky no topo
+        section.style.position = 'sticky';
+        section.style.top = '0';
+        
+        // Z-index crescente para cada section seguinte ficar por cima
+        section.style.zIndex = index + 1;
+        
+        // Não animar a primeira section
+        if (index === 0) return;
+        
+        // Para sections 2 e 3: começam escondidas abaixo
+        gsap.set(section, {
+          yPercent: 100
+        });
+        
+        // Criar animação individual para cada section
+        gsap.to(section, {
+          yPercent: 0,
+          ease: 'none',
           scrollTrigger: {
-            trigger: panel,
-            start: 'top top',
-            end: '+=100%',
-            pin: true,
-            pinSpacing: false,
-            scrub: true,
+            trigger: container,
+            start: `top+=${(index - 1) * 100}vh top`,
+            end: `top+=${index * 100}vh top`,
+            scrub: 1,
+            markers: false, // Mude para true para debug
+            id: `section-${index + 1}`
           }
         });
-      }
+      });
+      
+      // Refresh para garantir cálculos corretos
+      ScrollTrigger.refresh();
+      
     });
-
-    // Botão voltar ao topo
-    document.querySelector('button').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Refresh no resize
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
     });
   </script>
 

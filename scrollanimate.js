@@ -172,26 +172,49 @@ window.addEventListener('load', () => {
     } else {
         // Código específico para dispositivos móveis (mobile)
         // Aqui você pode adicionar animações ou ajustes específicos para telas menores
-        const panels = gsap.utils.toArray('.secao');
+        gsap.set(container, { position: 'relative' });
 
-        // Criar animação para cada painel (exceto o último)
-        panels.forEach((panel, index) => {
-            if (index < panels.length + 1) {
-                gsap.to(panel, {
-                    scrollTrigger: {
-                        trigger: panel,
-                        start: 'top top',
-                        end: '+=100%',
-                        pin: true,
-                        pinSpacing: false,
-                        scrub: 1,
-                    }
-                });
+        secoes.forEach((secao, index) => {
+            gsap.set(secao, {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: secoes.length - index // Inverte: última seção no fundo
+            });
+        });
+
+        let tlMobile = gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                start: "top top",
+                end: `+=${secoes.length * 100}%`,
+                scrub: 1,
+                pin: true,
+                markers: true,
+            }
+        });
+
+        // Anima cada seção individualmente
+        secoes.forEach((secao, index) => {
+            if (index > 0) {
+                // Move a seção de baixo para cima, cobrindo a anterior
+                tlMobile.fromTo(secao,
+                    {
+                        yPercent: 100
+                    },
+                    {
+                        yPercent: 0,
+                        ease: "none"
+                    },
+                    index // Cada seção começa quando a anterior termina
+                );
             }
         });
     }
     document.querySelector('#btn-ler').addEventListener('click', () => {
-      window.scrollTo({ top: 1100, behavior: 'smooth' });
+        window.scrollTo({ top: 1100, behavior: 'smooth' });
     });
 
     // Refresh do ScrollTrigger após inicialização
