@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
 
 
     // Verificar se os elementos existem
-    if (!isMobile()) {
+    if (!isMobile() && !isTablet()) {
 
 
         if (secoes.length > 0 && container) {
@@ -106,11 +106,10 @@ window.addEventListener('load', () => {
                 // Cancela animações anteriores antes de iniciar novas
                 gsap.killTweensOf([this, subtitulo, texto]);
 
-                gsap.to(this, 1, { width: 540, ease: "expo.inOut" });
-                // Remove y translation for subtitle as flex layout handles it
-                // gsap.to(subtitulo, { y: -150, duration: 1, ease: "expo.inOut" });
-                gsap.to(texto, { height: "auto", opacity: 1, duration: 1.75, ease: "expo.inOut" });
-            })
+                gsap.to(this, {width: 500, duration: 1, ease: "expo.inOut" });
+                gsap.to(subtitulo, { y: -150, duration: 1, ease: "expo.inOut" });
+                gsap.to(texto, { opacity: 0, duration: 1.75, ease: "expo.inOut" });
+            });
 
             cards[i].addEventListener("mouseleave", function () {
                 var subtitulo = this.querySelector(".subtitulos");
@@ -119,11 +118,10 @@ window.addEventListener('load', () => {
                 // Cancela animações anteriores antes de iniciar novas
                 gsap.killTweensOf([this, subtitulo, texto]);
 
-                gsap.to(this, 1, { width: 400, ease: "expo.inOut" });
-                // Remove y translation for subtitle
-                // gsap.to(subtitulo, { y: 0, duration: 1, ease: "expo.inOut" });
-                gsap.to(texto, { height: 0, opacity: 0, duration: 0.75 });
-            })
+                gsap.to(this, { width: 400, duration: 1, ease: "expo.inOut" });
+                gsap.to(subtitulo, { y: 0, duration: 1, ease: "expo.inOut" });
+                gsap.to(texto, { opacity: 0, duration: 0.75 });
+            });
         }
 
         // colocar uma class para selecionar os textos do footer
@@ -314,8 +312,13 @@ window.addEventListener('load', () => {
                         });
                     };
 
+                    let isAnimating = false;
+
                     // Navigation handlers
                     const handleNext = () => {
+                        if (isAnimating) return;
+                        isAnimating = true;
+
                         currentIndex++;
                         updateCarousel();
                         // Check for loop
@@ -324,11 +327,19 @@ window.addEventListener('load', () => {
                             setTimeout(() => {
                                 currentIndex = 0;
                                 updateCarousel(false); // No animation for reset
+                                isAnimating = false;
+                            }, 500);
+                        } else {
+                            setTimeout(() => {
+                                isAnimating = false;
                             }, 500);
                         }
                     };
 
                     const handlePrev = () => {
+                        if (isAnimating) return;
+                        isAnimating = true;
+
                         currentIndex--;
                         updateCarousel();
 
@@ -338,6 +349,11 @@ window.addEventListener('load', () => {
                             setTimeout(() => {
                                 currentIndex = totalCards - 1;
                                 updateCarousel(false); // No animation for reset
+                                isAnimating = false;
+                            }, 500);
+                        } else {
+                            setTimeout(() => {
+                                isAnimating = false;
                             }, 500);
                         }
                     };
@@ -369,11 +385,20 @@ window.addEventListener('load', () => {
     ScrollTrigger.refresh();
 });
 
-// Refresh ao redimensionar a janela
+
+
+// Refresh ao redimensionar a janela e recarregar se mudar de breakpoint (mobile/desktop)
 let resizeTimer;
+let wasMobile = window.innerWidth < 768;
+
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-        ScrollTrigger.refresh();
+        const isNowMobile = window.innerWidth < 768;
+        if (wasMobile !== isNowMobile) {
+            window.location.reload();
+        } else {
+            ScrollTrigger.refresh();
+        }
     }, 250);
 });
