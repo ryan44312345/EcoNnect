@@ -124,7 +124,7 @@
                                 <div class="xl:text-3xl lg:text-2xl text-xl md:ml-20 ml-10 mb-10">
                                     <h2 id="subtitle-educacao" class="subtitle-educacao">Educação Ambiental</h2>
                                 </div>
-                                <div class="xl:text-9xl lg:lg:text-8xl text-7xl md:ml-20 ml-10 md:mb-21 mb-15">
+                                <div class="xl:text-9xl lg:text-8xl text-5xl md:ml-20 ml-10 md:mb-21 mb-15">
                                     <h1 class="econnect">EcoNnect</h1>
                                 </div>
                                 <div class="flex md:flex-row flex-col justify-between">
@@ -240,143 +240,238 @@
 
                     <div class="flex flex-col max-w-full gap-5 items-center h-full">
                         <h2 id="onde-ocorre-title"
-                            class="font-medium font-libre italic text-center text-laranja-claro lg:text-8xl mb-3">Onde
+                            class="font-medium font-libre italic text-center text-laranja-claro text-3xl md:text-5xl lg:text-8xl mb-3">
+                            Onde
                             ocorre?</h2>
                         <p id="onde-ocorre-subtitle"
-                            class="font-teachers text-laranja-claro text-center text-2xl font-bold mt-3 mb-5">O <span
-                                class="text-laranja-pastel">fenômeno é global</span>, mas
+                            class="font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mt-3 mb-5">
+                            O <span class="text-laranja-pastel">fenômeno é global</span>, mas
                             assume diferentes intensidades dependendo da região:</p>
-                        <div class="flex flex-wrap gap-5 justify-center mt-5 w-full">
-                            <div
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)]">
+                        <div class="w-full overflow-hidden md:overflow-visible">
+                            <div id="card-slider"
+                                class="flex flex-nowrap md:flex-wrap gap-5 justify-start md:justify-center mt-5 w-full">
                                 <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/imagem.png)] bg-center bg-cover">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-90 rounded-xl bg-[url(img/imagem.png)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card1-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Uso irrestrito na Amazônia</h3>
+                                        <p id="card1-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            Na Amazônia e em outros biomas tropicais: o desmatamento acelerado, a
+                                            expansão agropecuária, a extração ilegal de madeira e o garimpo exemplificam
+                                            como o
+                                            uso predatório causa perda de biodiversidade e altera o equilíbrio
+                                            climático.
+                                        </p>
+                                    </div>
                                 </div>
-                                <h3 id="card1-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Uso irrestrito na Amazônia</h3>
-                                <p id="card1-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    Na Amazônia e em outros biomas tropicais: o desmatamento acelerado, a
-                                    expansão agropecuária, a extração ilegal de madeira e o garimpo exemplificam como o
-                                    uso predatório causa perda de biodiversidade e altera o equilíbrio climático.</p>
-                            </div>
-                            <div
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)]">
                                 <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/oceanos.png)] bg-center bg-cover">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-90 rounded-xl bg-[url(img/oceanos.png)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card2-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Uso irrestrito no Oceano</h3>
+                                        <p id="card2-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            A grave crise oceânica, causada por sobrepesca, poluição plástica e
+                                            exploração
+                                            de
+                                            petróleo/gás, é agravada pelas mudanças climáticas, ameaçando a vida marinha
+                                            e a
+                                            subsistência costeira. A conservação é urgente.
+                                        </p>
+                                    </div>
                                 </div>
-                                <h3 id="card2-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Uso irrestrito no Oceano</h3>
-                                <p id="card2-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    A grave crise oceânica, causada por sobrepesca, poluição plástica e exploração de
-                                    petróleo/gás, é agravada pelas mudanças climáticas, ameaçando a vida marinha e a
-                                    subsistência costeira. A conservação é urgente.
-                                </p>
-                            </div>
-                            <div
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)]">
                                 <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/urbano.png)] bg-center bg-cover">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-90 rounded-xl bg-[url(img/urbano.png)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card3-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Uso irrestrito em áreas urbanas e industriais </h3>
+                                        <p id="card3-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            Em áreas urbanas e industriais: o uso massivo de combustíveis fósseis, a
+                                            mineração
+                                            desordenada e o consumo energético desenfreado demonstram como o
+                                            desenvolvimento
+                                            econômico costuma ignorar a preservação ambiental.</p>
+                                    </div>
                                 </div>
-                                <h3 id="card3-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Uso irrestrito em áreas urbanas e industriais </h3>
-                                <p id="card3-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    Em áreas urbanas e industriais: o uso massivo de combustíveis fósseis, a mineração
-                                    desordenada e o consumo energético desenfreado demonstram como o desenvolvimento
-                                    econômico costuma ignorar a preservação ambiental.</p>
-                            </div>
-                            <div
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)]">
                                 <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/aridas.png)] bg-center bg-cover">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-90 rounded-xl bg-[url(img/aridas.png)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card4-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Uso irrestrito em regiões áridas ou semiáridas</h3>
+                                        <p id="card4-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            Exploração hídrica insustentável (irrigação/indústria) em áreas secas
+                                            acelera a
+                                            desertificação, esgotando aquíferos e degradando o solo. Má gestão hídrica
+                                            causa
+                                            escassez e tensões. Segurança hídrica exige conservação, eficiência e
+                                            cooperação.</p>
+                                    </div>
                                 </div>
-                                <h3 id="card4-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Uso irrestrito em regiões áridas ou semiáridas</h3>
-                                <p id="card4-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    Exploração hídrica insustentável (irrigação/indústria) em áreas secas acelera a
-                                    desertificação, esgotando aquíferos e degradando o solo. Má gestão hídrica causa
-                                    escassez e tensões. Segurança hídrica exige conservação, eficiência e cooperação.
-                                </p>
                             </div>
+                        </div>
+
+                        <!-- Navigation Buttons for Mobile -->
+                        <div class="flex justify-center gap-4 mt-4 md:hidden w-full z-10">
+                            <button id="prev-btn"
+                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg hover:bg-laranja-claro transition-colors">
+                                &larr;
+                            </button>
+                            <button id="next-btn"
+                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg hover:bg-laranja-claro transition-colors">
+                                &rarr;
+                            </button>
                         </div>
                     </div>
                 </section>
                 <section class="min-h-screen w-full bg-cinza-escuro flex flex-col">
                     <h2 id="como-resolver-title"
-                        class="text-center text-laranja-claro font-medium font-libre lg:text-8xl mt-10 italic">Como
+                        class="text-center text-laranja-claro font-medium font-libre text-3xl md:text-5xl lg:text-8xl mt-10 italic">
+                        Como
                         resolver esse problema?
                     </h2>
                     <div class="flex flex-col max-w-full gap-5 items-center h-full">
                         <p id="como-resolver-subtitle"
-                            class="font-teachers text-laranja-claro text-center text-2xl font-bold mt-3 mb-5">Existe
+                            class="font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mt-3 mb-5">
+                            Existe
                             <span class="text-laranja-pastel">várias maneiras</span> de ajudar a resolver esse problema
                             aqui está algumas delas:
                         </p>
-                        <div class="flex flex-wrap gap-5 justify-center mt-5 w-full">
-                            <a href="/"
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block">
-                                <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/instituicao.jpg)] bg-center bg-cover">
-                                </div>
-                                <h3 id="card5-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Instituições</h3>
-                                <p id="card5-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    As instituições ambientais atuam na fiscalização, proteção e recuperação dos
-                                    recursos naturais. Elas desenvolvem projetos, políticas públicas e ações diretas
-                                    contra danos ambientais. Você pode conhecer e apoiar essas organizações para
-                                    ampliar o impacto positivo.</p>
-                            </a>
-                            <a href="/"
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block">
-                                <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/close-up-homem-segurando-megafone.jpg)] bg-center bg-cover">
-                                </div>
-                                <h3 id="card6-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Denúncias</h3>
-                                <p id="card6-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    As denúncias permitem relatar crimes ambientais diretamente no site ou em canais
-                                    oficiais. Isso ajuda a combater desmatamento, queimadas ilegais e outras
-                                    irregularidades que prejudicam a natureza.</p>
-                            </a>
-                            <a href="/"
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block">
-                                <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/jornal.png)] bg-center bg-cover">
-                                </div>
-                                <h3 id="card7-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Notícias</h3>
-                                <p id="card7-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    As notícias trazem informações atualizadas sobre eventos, políticas e
-                                    descobertas ambientais. Assim, o usuário se mantém consciente sobre o que
-                                    acontece e entende melhor os desafios enfrentados pela natureza.</p>
-                            </a>
-                            <a href="/"
-                                class="cards rounded-xl w-full md:w-[400px] h-[500px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block">
-                                <div
-                                    class="h-full brightness-50 rounded-xl bg-[url(img/crianca-voluntaria-segurando-uma-pequena-arvore-de-mudas-em-suas-maos.jpg)] bg-center bg-cover">
-                                </div>
-                                <h3 id="card8-title"
-                                    class="subtitulos absolute text-laranja-claro font-teachers font-semibold bottom-4 right-10 left-5 text-2xl ">
-                                    Voluntariado Ambiental</h3>
-                                <p id="card8-text"
-                                    class="texto absolute text-laranja-claro font-teachers bottom-4 right-10 left-5 text-xl opacity-0">
-                                    O voluntariado ambiental envolve participação em ações práticas, como plantio e
-                                    limpezas comunitárias. Ele permite que o usuário contribua diretamente para a
-                                    preservação e fortaleça o cuidado com o meio ambiente.</p>
-                            </a>
+                        <div class="w-full overflow-hidden md:overflow-visible">
+                            <div id="card-slider-2"
+                                class="flex flex-nowrap md:flex-wrap gap-5 justify-start md:justify-center mt-5 w-full">
+                                <a href="/"
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-50 rounded-xl bg-[url(img/instituicao.jpg)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card5-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Instituições</h3>
+                                        <p id="card5-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            As instituições ambientais atuam na fiscalização, proteção e recuperação dos
+                                            recursos naturais. Elas desenvolvem projetos, políticas públicas e ações
+                                            diretas
+                                            contra danos ambientais. Você pode conhecer e apoiar essas organizações para
+                                            ampliar o impacto positivo.</p>
+                                    </div>
+                                </a>
+                                <a href="/"
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-50 rounded-xl bg-[url(img/close-up-homem-segurando-megafone.jpg)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card6-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Denúncias</h3>
+                                        <p id="card6-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            As denúncias permitem relatar crimes ambientais diretamente no site ou em
+                                            canais
+                                            oficiais. Isso ajuda a combater desmatamento, queimadas ilegais e outras
+                                            irregularidades que prejudicam a natureza.</p>
+                                    </div>
+                                </a>
+                                <a href="/"
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-50 rounded-xl bg-[url(img/jornal.png)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card7-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Notícias</h3>
+                                        <p id="card7-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            As notícias trazem informações atualizadas sobre eventos, políticas e
+                                            descobertas ambientais. Assim, o usuário se mantém consciente sobre o que
+                                            acontece e entende melhor os desafios enfrentados pela natureza.</p>
+                                    </div>
+                                </a>
+                                <a href="/"
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] aspect-[3/4] h-auto relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    <div
+                                        class="h-full brightness-50 rounded-xl bg-[url(img/crianca-voluntaria-segurando-uma-pequena-arvore-de-mudas-em-suas-maos.jpg)] bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                    </div>
+                                    <div
+                                        class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                                        <h3 id="card8-title"
+                                            class="subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                            Voluntariado Ambiental</h3>
+                                        <p id="card8-text"
+                                            class="texto text-laranja-claro font-teachers text-base md:text-lg h-0 opacity-0 overflow-hidden">
+                                            O voluntariado ambiental envolve participação em ações práticas, como
+                                            plantio e
+                                            limpezas comunitárias. Ele permite que o usuário contribua diretamente para
+                                            a
+                                            preservação e fortaleça o cuidado com o meio ambiente.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons for Mobile (Second Slider) -->
+                        <div class="flex justify-center gap-4 mt-4 md:hidden w-full z-10">
+                            <button id="prev-btn-2"
+                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg hover:bg-laranja-claro transition-colors">
+                                &larr;
+                            </button>
+                            <button id="next-btn-2"
+                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg hover:bg-laranja-claro transition-colors">
+                                &rarr;
+                            </button>
                         </div>
                     </div>
                     <!-- <div class="flex flex-row mt-20 gap-26 mx-auto">
@@ -420,7 +515,7 @@
                 <section class="section-footer bg-black py-12">
                     <div class="max-w-7xl mx-auto px-6">
                         <h2 id="footer-title"
-                            class="footer-text text-center text-laranja-claro font-libre italic text-5xl mb-12">
+                            class="footer-text text-center text-laranja-claro font-libre italic text-4xl lg:text-5xl mb-12">
                             Contate-nos</h2>
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -433,7 +528,7 @@
                             <!-- Email Section -->
                             <div class="text-center">
                                 <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Email</h3>
-                                <p class="footer-text text-laranja-claro font-teachers text-2xl">
+                                <p class="footer-text text-laranja-claro font-teachers text-lg lg:text-2xl">
                                     hello@reallygreatsite.com</p>
                             </div>
 

@@ -107,8 +107,9 @@ window.addEventListener('load', () => {
                 gsap.killTweensOf([this, subtitulo, texto]);
 
                 gsap.to(this, 1, { width: 540, ease: "expo.inOut" });
-                gsap.to(subtitulo, { y: -150, duration: 1, ease: "expo.inOut" });
-                gsap.to(texto, { opacity: 1, duration: 1.75, ease: "expo.inOut" });
+                // Remove y translation for subtitle as flex layout handles it
+                // gsap.to(subtitulo, { y: -150, duration: 1, ease: "expo.inOut" });
+                gsap.to(texto, { height: "auto", opacity: 1, duration: 1.75, ease: "expo.inOut" });
             })
 
             cards[i].addEventListener("mouseleave", function () {
@@ -119,8 +120,9 @@ window.addEventListener('load', () => {
                 gsap.killTweensOf([this, subtitulo, texto]);
 
                 gsap.to(this, 1, { width: 400, ease: "expo.inOut" });
-                gsap.to(subtitulo, { y: 0, duration: 1, ease: "expo.inOut" });
-                gsap.to(texto, { opacity: 0, duration: 0.75 });
+                // Remove y translation for subtitle
+                // gsap.to(subtitulo, { y: 0, duration: 1, ease: "expo.inOut" });
+                gsap.to(texto, { height: 0, opacity: 0, duration: 0.75 });
             })
         }
 
@@ -211,10 +213,157 @@ window.addEventListener('load', () => {
                 );
             }
         });
+
+        // Manual 3D Carousel Logic
+        function initCarousel(sliderId, prevBtnId, nextBtnId) {
+            const slider = document.querySelector(sliderId);
+            const prevBtn = document.querySelector(prevBtnId);
+            const nextBtn = document.querySelector(nextBtnId);
+
+            if (slider && prevBtn && nextBtn) {
+                const cards = slider.querySelectorAll('.cards');
+                if (cards.length > 0) {
+                    let currentIndex = 0;
+                    const totalCards = cards.length;
+
+                    // Clone cards for infinite loop effect
+                    // We need enough clones to cover the view
+                    const cloneCount = 2; // Number of clones on each side
+
+                    // Clone last few cards to beginning
+                    for (let i = 0; i < cloneCount; i++) {
+                        const clone = cards[totalCards - 1 - i].cloneNode(true);
+                        clone.classList.add('clone');
+                        slider.insertBefore(clone, slider.firstChild);
+                    }
+
+                    // Clone first few cards to end
+                    for (let i = 0; i < cloneCount; i++) {
+                        const clone = cards[i].cloneNode(true);
+                        clone.classList.add('clone');
+                        slider.appendChild(clone);
+                    }
+
+                    const allCards = slider.querySelectorAll('.cards');
+
+                    // Update layout function
+                    const updateCarousel = (animate = true) => {
+                        const cardWidth = allCards[0].offsetWidth;
+                        const gap = 20; // gap-5 is 20px
+                        const itemWidth = cardWidth + gap;
+
+                        // Calculate offset to center the current card
+                        // We start at index + cloneCount because of the prepended clones
+                        const activeIndex = currentIndex + cloneCount;
+
+                        // Center position calculation
+                        const containerWidth = slider.parentElement.offsetWidth;
+                        const centerOffset = (containerWidth - cardWidth) / 2;
+
+                        // Calculate transform
+                        const x = -(activeIndex * itemWidth) + centerOffset;
+
+                        if (animate) {
+                            gsap.to(slider, {
+                                x: x,
+                                duration: 0.5,
+                                ease: "power2.out",
+                                onUpdate: () => update3DEffect(allCards, slider)
+                            });
+                        } else {
+                            gsap.set(slider, { x: x });
+                            update3DEffect(allCards, slider);
+                        }
+
+                        // Update text visibility
+                        allCards.forEach((card, index) => {
+                            const text = card.querySelector('.texto');
+                            if (text) {
+                                if (index === activeIndex) {
+                                    gsap.to(text, { height: "auto", opacity: 1, duration: 0.5, delay: 0.2 });
+                                } else {
+                                    gsap.to(text, { height: 0, opacity: 0, duration: 0.3 });
+                                }
+                            }
+                        });
+                    };
+
+                    const update3DEffect = (cards, sliderContainer) => {
+                        const center = sliderContainer.parentElement.offsetWidth / 2;
+                        const sliderRect = sliderContainer.getBoundingClientRect();
+                        const sliderLeft = sliderRect.left;
+
+                        cards.forEach(card => {
+                            const rect = card.getBoundingClientRect();
+                            const cardCenter = rect.left + rect.width / 2;
+                            // Calculate distance relative to the viewport center
+                            const dist = Math.abs(window.innerWidth / 2 - cardCenter);
+
+                            // Calculate scale and opacity based on distance from center
+                            let scale = 1 - (dist / window.innerWidth) * 0.4;
+                            scale = Math.max(0.85, Math.min(1.05, scale)); // Clamp scale
+
+                            let opacity = 1 - (dist / window.innerWidth) * 0.6;
+                            opacity = Math.max(0.4, Math.min(1, opacity)); // Clamp opacity
+
+                            gsap.set(card, {
+                                scale: scale,
+                                opacity: opacity,
+                                zIndex: Math.round(1000 - dist)
+                            });
+                        });
+                    };
+
+                    // Navigation handlers
+                    const handleNext = () => {
+                        currentIndex++;
+                        updateCarousel();
+                        // Check for loop
+                        if (currentIndex >= totalCards) {
+                            // Wait for animation to finish then reset
+                            setTimeout(() => {
+                                currentIndex = 0;
+                                updateCarousel(false); // No animation for reset
+                            }, 500);
+                        }
+                    };
+
+                    const handlePrev = () => {
+                        currentIndex--;
+                        updateCarousel();
+
+                        // Check for loop
+                        if (currentIndex < 0) {
+                            // Wait for animation to finish then reset
+                            setTimeout(() => {
+                                currentIndex = totalCards - 1;
+                                updateCarousel(false); // No animation for reset
+                            }, 500);
+                        }
+                    };
+
+                    nextBtn.addEventListener('click', handleNext);
+                    prevBtn.addEventListener('click', handlePrev);
+
+                    // Initial setup
+                    // Wait a moment for layout to stabilize
+                    setTimeout(() => {
+                        updateCarousel(false);
+                    }, 100);
+
+                    // Handle resize
+                    window.addEventListener('resize', () => updateCarousel(false));
+                }
+            }
+        }
+
+        // Initialize both carousels
+        initCarousel('#card-slider', '#prev-btn', '#next-btn');
+        initCarousel('#card-slider-2', '#prev-btn-2', '#next-btn-2');
+        document.querySelector('#btn-ler').addEventListener('click', () => {
+            window.scrollTo({ top: 1100, behavior: 'smooth' });
+        });
     }
-    document.querySelector('#btn-ler').addEventListener('click', () => {
-        window.scrollTo({ top: 1100, behavior: 'smooth' });
-    });
 
     // Refresh do ScrollTrigger após inicialização
     ScrollTrigger.refresh();
