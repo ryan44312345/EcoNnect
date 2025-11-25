@@ -57,7 +57,7 @@ window.addEventListener('load', () => {
 
     // Selecionar elementos para scroll horizontal
     let secoes = document.querySelectorAll('.secao');
-    let container = document.querySelector('.container');
+    let container = document.querySelector('#intro-container');
 
 
 
@@ -171,7 +171,6 @@ window.addEventListener('load', () => {
         });
     } else {
         // Código específico para dispositivos móveis (mobile)
-        // Aqui você pode adicionar animações ou ajustes específicos para telas menores
         gsap.set(container, { position: 'relative' });
 
         secoes.forEach((secao, index) => {
@@ -181,7 +180,7 @@ window.addEventListener('load', () => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                zIndex: secoes.length - index // Inverte: última seção no fundo
+                zIndex: index // Alterado para empilhar na ordem correta (0 no fundo, 1 em cima, etc.)
             });
         });
 
@@ -192,7 +191,7 @@ window.addEventListener('load', () => {
                 end: `+=${secoes.length * 100}%`,
                 scrub: 1,
                 pin: true,
-                markers: true,
+                markers: false, // Removido markers para limpeza visual
             }
         });
 
@@ -208,7 +207,7 @@ window.addEventListener('load', () => {
                         yPercent: 0,
                         ease: "none"
                     },
-                    index // Cada seção começa quando a anterior termina
+                    index - 1 // Sequencia as animações: 0->1, 1->2, etc.
                 );
             }
         });
