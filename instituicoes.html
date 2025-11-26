@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoNnect - Instituições</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+        
+        @import 'tailwindcss';
+        
+        @theme {
+        --font-libre: 'Libre Baskerville', sans-serif;
+        --font-teachers: 'Teachers', sans-serif;
+        --color-verde-escuro: #152409;
+        --color-laranja-claro: #f4efe5;
+        --color-laranja-pastel: #ffd580;
+        --color-cinza-escuro: #2e2e28;
+        --color-verde-acizentado: #163943;
+        --color-very-dark-blue: hsl(240, 100%, 5%);
+        --color-rose-50: #7b284f;
+        --color-rose-800: #fff5fa;
+        }
+    </style>
+</head>
+
+<body class="bg-cinza-escuro text-laranja-claro font-teachers">
+    <!-- Botão do menu mobile -->
+    <div class="w-6 absolute z-50 top-1/30 left-9/10 sm:hidden">
+        <button class="cursor-pointer" id="menu-btn">
+            <div class="">
+                <div id="hambuguer1" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+                <div id="hambuguer2" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+                <div id="hambuguer3" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <header class="w-full h-[89px] bg-verde-escuro" id="header">
+        <!-- Menu lateral mobile -->
+        <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-40 bg-verde-escuro"
+            id="aside">
+            <!-- Logo in Sidebar -->
+            <div class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4">
+                <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                <h1 class="font-libre text-4xl text-laranja-claro">EcoNnect</h1>
+            </div>
+
+            <div class="h-full w-full flex flex-col justify-center items-center gap-8">
+                <!-- Menu Items -->
+                <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                    <a href="index.html" id="mobile-inicio">
+                        <div class="w-full">
+                            <h1 class="px-3 py-4 text-center font-libre text-xl">Inicio</h1>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                    <a href="index.html#sobre" id="mobile-sobre">
+                        <div class="w-full">
+                            <h1 class="px-3 py-4 text-center font-libre text-xl">Sobre</h1>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300"
+                    id="mobile-btn-idioma">
+                    <div class="w-full flex justify-center items-center gap-3 py-4">
+                        <img src="img/11654500.png" alt="Idioma" class="size-6" id="mobile-img-idioma">
+                        <h1 class="font-libre text-xl" id="mobile-txt-idioma">Troca de idioma</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo do header -->
+        <div class="w-full h-full flex flex-row justify-between">
+            <div class="flex flex-row">
+                <div class="py-4 ml-8 mr-5">
+                    <a href="index.html">
+                        <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                    </a>
+                </div>
+                <div class="self-center text-white font-libre text-4xl text-laranja-claro">
+                    <a href="index.html">
+                        <h1>EcoNnect</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
+                <div>
+                    <a href="index.html" id="inicio">Inicio</a>
+                </div>
+                <div>
+                    <a href="index.html#sobre" id="sobre">Sobre</a>
+                </div>
+                <div class="flex flex-row gap-1" id="btn-idioma">
+                    <div class="mt-1">
+                        <button class="cursor-pointer">
+                            <img src="img/11654500.png" alt="Idioma" class="size-5" id="img-idioma">
+                        </button>
+                    </div>
+                    <div>
+                        <button class="cursor-pointer" id="txt-idioma">Troca de idioma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h1 id="page-title" class="text-4xl md:text-6xl font-libre italic text-center mb-4">Instituições <span
+                    class="text-laranja-pastel">Ambientais</span></h1>
+            <p id="page-subtitle" class="text-center text-lg md:text-xl max-w-3xl mx-auto mb-16 opacity-80">Conheça e
+                apoie organizações
+                que trabalham incansavelmente pela preservação do nosso planeta.</p>
+
+            <!-- Container for the list -->
+            <div id="cards-container" class="flex flex-col gap-16">
+                <!-- Template Section (Hidden by default, used by JS) -->
+                <template id="card-template">
+                    <section
+                        class="institution-section bg-cinza-escuro border border-white/10 rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl hover:border-laranja-pastel/30 transition-all duration-500 group">
+                        <!-- Image Side -->
+                        <div class="w-full lg:w-2/5 h-[300px] lg:h-auto relative overflow-hidden">
+                            <div
+                                class="card-bg w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-cinza-escuro via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-cinza-escuro">
+                            </div>
+                        </div>
+
+                        <!-- Content Side -->
+                        <div class="w-full lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
+                            <h2 class="card-title text-3xl md:text-4xl font-libre italic text-laranja-pastel mb-6">Nome
+                                da Instituição</h2>
+
+                            <div class="space-y-6">
+                                <div>
+                                    <h3
+                                        class="text-laranja-claro/60 font-teachers text-sm uppercase tracking-wider mb-2">
+                                        Sobre</h3>
+                                    <p class="card-desc text-laranja-claro font-teachers text-lg leading-relaxed">
+                                        Descrição da instituição.
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h3
+                                            class="text-laranja-claro/60 font-teachers text-sm uppercase tracking-wider mb-2">
+                                            Localização</h3>
+                                        <p
+                                            class="card-location text-laranja-claro font-teachers flex items-center gap-2">
+                                            <svg class="w-5 h-5 text-laranja-pastel" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            <span>Localização</span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="text-laranja-claro/60 font-teachers text-sm uppercase tracking-wider mb-2">
+                                            Contato</h3>
+                                        <p
+                                            class="card-contact text-laranja-claro font-teachers flex items-center gap-2">
+                                            <svg class="w-5 h-5 text-laranja-pastel" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                                </path>
+                                            </svg>
+                                            <span>Contato</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="pt-6">
+                                    <a href="#" target="_blank"
+                                        class="card-link inline-flex items-center gap-2 bg-laranja-pastel text-cinza-escuro font-bold py-3 px-8 rounded-full hover:bg-white transition-colors duration-300">
+                                        Visitar Site Oficial
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </template>
+            </div>
+        </div>
+    </main>
+
+    <footer class="section-footer bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 id="footer-title"
+                class="footer-text text-center text-laranja-claro font-libre italic text-4xl lg:text-5xl mb-12">
+                Contate-nos</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Phone Section -->
+                <div class="text-center">
+                    <h3 id="footer-phone" class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Phone</h3>
+                    <p class="footer-text text-laranja-claro font-teachers text-2xl">(123) 456-7890</p>
+                </div>
+
+                <!-- Email Section -->
+                <div class="text-center">
+                    <h3 id="footer-email" class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Email</h3>
+                    <p class="footer-text text-laranja-claro font-teachers text-lg lg:text-2xl">
+                        hello@reallygreatsite.com</p>
+                </div>
+
+                <!-- Social Section -->
+                <div class="text-center">
+                    <h3 id="footer-social" class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Social
+                    </h3>
+                    <div class="flex justify-center gap-4">
+                        <a href="#" class="text-laranja-claro hover:text-laranja-pastel transition-colors">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-laranja-claro hover:text-laranja-pastel transition-colors">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="instituicoes.js"></script>
+    <script src="anime.js"></script>
+</body>
+
+</html>

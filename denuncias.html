@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoNnect - Denúncias</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+        
+        @import 'tailwindcss';
+        
+        @theme {
+        --font-libre: 'Libre Baskerville', sans-serif;
+        --font-teachers: 'Teachers', sans-serif;
+        --color-verde-escuro: #152409;
+        --color-laranja-claro: #f4efe5;
+        --color-laranja-pastel: #ffd580;
+        --color-cinza-escuro: #2e2e28;
+        --color-verde-acizentado: #163943;
+        --color-very-dark-blue: hsl(240, 100%, 5%);
+        --color-rose-50: #7b284f;
+        --color-rose-800: #fff5fa;
+        }
+    </style>
+</head>
+
+<body class="bg-cinza-escuro text-laranja-claro font-teachers">
+    <header class="w-full h-[89px] bg-verde-escuro" id="header">
+        <div class="w-full h-full flex flex-row justify-between">
+            <div class="flex flex-row">
+                <div class="py-4 ml-8 mr-5">
+                    <a href="index.html">
+                        <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                    </a>
+                </div>
+                <div class="self-center text-white font-libre text-4xl text-laranja-claro">
+                    <a href="index.html">
+                        <h1>EcoNnect</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
+                <div>
+                    <a href="index.html" id="inicio">Inicio</a>
+                </div>
+                <div>
+                    <a href="index.html#sobre" id="sobre">Sobre</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-libre italic text-center mb-4">Canais de <span
+                    class="text-laranja-pastel">Denúncia</span></h1>
+            <p class="text-center text-lg md:text-xl max-w-3xl mx-auto mb-16 opacity-80">Não se cale diante de crimes
+                ambientais. Utilize os canais oficiais abaixo para reportar irregularidades.</p>
+
+            <div id="cards-container" class="flex flex-wrap gap-8 justify-center">
+                <template id="card-template">
+                    <a href="#" target="_blank"
+                        class="card-link cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group hover:border-laranja-pastel/50 transition-colors">
+                        <div
+                            class="card-bg h-full brightness-50 rounded-xl bg-center bg-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                        </div>
+                        <div class="card-content absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                            <h3
+                                class="card-title subtitulos text-laranja-claro font-teachers font-semibold text-xl md:text-2xl mb-2">
+                                Título
+                            </h3>
+                            <p
+                                class="card-desc texto text-laranja-claro font-teachers text-base md:text-lg opacity-100 overflow-visible">
+                                Descrição.
+                            </p>
+                        </div>
+                    </a>
+                </template>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-laranja-claro font-libre italic text-3xl mb-8">EcoNnect</h2>
+            <p class="text-laranja-claro/60">Juntos por um futuro sustentável.</p>
+        </div>
+    </footer>
+
+    <script src="denuncias.js"></script>
+</body>
+
+</html>
