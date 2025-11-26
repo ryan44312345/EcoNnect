@@ -106,9 +106,12 @@ window.addEventListener('load', () => {
                 // Cancela animações anteriores antes de iniciar novas
                 gsap.killTweensOf([this, subtitulo, texto]);
 
-                gsap.to(this, {width: 500, duration: 1, ease: "expo.inOut" });
-                gsap.to(subtitulo, { y: -150, duration: 1, ease: "expo.inOut" });
-                gsap.to(texto, { opacity: 0, duration: 1.75, ease: "expo.inOut" });
+                // Set width to final expanded width (500px - 48px padding) to ensure correct height calculation
+                gsap.set(texto, { width: 452 });
+
+                gsap.to(this, { width: 500, duration: 1, ease: "power3.out" });
+                gsap.to(subtitulo, { y: -10, duration: 1, ease: "power3.out" });
+                gsap.to(texto, { height: "auto", opacity: 1, duration: 1, ease: "power3.out" });
             });
 
             cards[i].addEventListener("mouseleave", function () {
@@ -118,9 +121,17 @@ window.addEventListener('load', () => {
                 // Cancela animações anteriores antes de iniciar novas
                 gsap.killTweensOf([this, subtitulo, texto]);
 
-                gsap.to(this, { width: 400, duration: 1, ease: "expo.inOut" });
-                gsap.to(subtitulo, { y: 0, duration: 1, ease: "expo.inOut" });
-                gsap.to(texto, { opacity: 0, duration: 0.75 });
+                gsap.to(this, { width: 400, duration: 1, ease: "power3.out" });
+                gsap.to(subtitulo, { y: 0, duration: 1, ease: "power3.out" });
+                gsap.to(texto, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.75,
+                    ease: "power3.out",
+                    onComplete: function () {
+                        gsap.set(texto, { width: "auto" });
+                    }
+                });
             });
         }
 
