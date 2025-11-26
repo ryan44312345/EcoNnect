@@ -4,6 +4,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 window.addEventListener('load', () => {
     // Inicializar ScrollSmoother
 
+    // Função para verificar se é dispositivo móvel
     function isMobile() {
         return window.innerWidth < 768;
     }
@@ -13,7 +14,8 @@ window.addEventListener('load', () => {
         return window.innerWidth >= 768 && window.innerWidth < 1024;
     }
 
-    ScrollSmoother.create({
+    // Configuração do ScrollSmoother para rolagem suave
+    window.smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
         smooth: 1,
@@ -22,6 +24,7 @@ window.addEventListener('load', () => {
         smoothTouch: 0.5
     });
 
+    // Criar divisões de texto para animação (SplitText)
     let split = SplitText.create('.subtitle-educacao', {
         type: "chars, words, lines",
         wordClass: "word++",
@@ -37,6 +40,7 @@ window.addEventListener('load', () => {
         wordClass: "word++",
     });
 
+    // Animação inicial dos textos divididos
     gsap.from(split.lines, {
         y: 100,
         autoAlpha: 0,
@@ -61,12 +65,12 @@ window.addEventListener('load', () => {
 
 
 
-    // Verificar se os elementos existem
+    // Verificar se os elementos existem e se NÃO é mobile/tablet
     if (!isMobile() && !isTablet()) {
 
 
         if (secoes.length > 0 && container) {
-            // Timeline para animações sequenciais
+            // Timeline para animações sequenciais de scroll horizontal
             let tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: container,
@@ -78,14 +82,15 @@ window.addEventListener('load', () => {
                 }
             });
 
+            // Configuração inicial dos clip-paths para transição
             tl.set(secoes[2], {
                 clipPath: "polygon(90% 0%, 100% 0%, 100% 100%, 90% 100%)"
             });
             tl.set(secoes[1], {
                 clipPath: "polygon(90% 0%, 100% 0%, 100% 100%, 90% 100%)",
             });
-            // estado inicial das seções (se quiser animar a partir de um layout específico)
-            // movimento geral horizontal (pode ajustar depois se quiser)
+
+            // Animação de transição entre as seções (efeito de cortina)
             tl.to(secoes[1], {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 ease: "none",
@@ -96,6 +101,7 @@ window.addEventListener('load', () => {
                 }, 0.5);
         }
 
+        // Configuração dos Cards (Desktop)
         var cards = document.querySelectorAll(".cards");
 
         for (var i = 0; i < cards.length; i++) {
@@ -106,9 +112,10 @@ window.addEventListener('load', () => {
                 // Cancela animações anteriores antes de iniciar novas
                 gsap.killTweensOf([this, subtitulo, texto]);
 
-                // Set width to final expanded width (500px - 48px padding) to ensure correct height calculation
+                // Define a largura final (500px - 48px padding) para cálculo correto da altura
                 gsap.set(texto, { width: 452 });
 
+                // Animação de expansão do card
                 gsap.to(this, { width: 500, duration: 1, ease: "power3.out" });
                 gsap.to(subtitulo, { y: -10, duration: 1, ease: "power3.out" });
                 gsap.to(texto, { height: "auto", opacity: 1, duration: 1, ease: "power3.out" });
@@ -121,6 +128,7 @@ window.addEventListener('load', () => {
                 // Cancela animações anteriores antes de iniciar novas
                 gsap.killTweensOf([this, subtitulo, texto]);
 
+                // Retorna o card ao estado original
                 gsap.to(this, { width: 400, duration: 1, ease: "power3.out" });
                 gsap.to(subtitulo, { y: 0, duration: 1, ease: "power3.out" });
                 gsap.to(texto, {
@@ -135,10 +143,7 @@ window.addEventListener('load', () => {
             });
         }
 
-        // colocar uma class para selecionar os textos do footer
-        // para mover os icones coloque uma class diferente do texto e anime
-
-        // Criar splits para todos os textos do footer
+        // Animações do Footer
         var footer = document.querySelectorAll(".footer-text");
 
         let footerSplits = SplitText.create(footer, {
@@ -149,7 +154,7 @@ window.addEventListener('load', () => {
         // Animar as letras quando a seção entrar na viewport
         gsap.from(footerSplits.chars, {
             scrollTrigger: {
-                trigger: '.section-footer', // ou use um ID específico para a seção
+                trigger: '.section-footer',
                 start: 'top 80%', // Inicia quando o topo da seção está a 80% da viewport
                 toggleActions: 'play none none reverse', // play ao entrar, reverse ao sair
                 markers: true,
@@ -191,7 +196,7 @@ window.addEventListener('load', () => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                zIndex: index // Alterado para empilhar na ordem correta (0 no fundo, 1 em cima, etc.)
+                zIndex: index // Alterado para empilhar na ordem correta
             });
         });
 
@@ -218,12 +223,12 @@ window.addEventListener('load', () => {
                         yPercent: 0,
                         ease: "none"
                     },
-                    index - 1 // Sequencia as animações: 0->1, 1->2, etc.
+                    index - 1 // Sequencia as animações
                 );
             }
         });
 
-        // Manual 3D Carousel Logic
+        // Lógica do Carrossel 3D Manual
         function initCarousel(sliderId, prevBtnId, nextBtnId) {
             const slider = document.querySelector(sliderId);
             const prevBtn = document.querySelector(prevBtnId);
@@ -235,18 +240,17 @@ window.addEventListener('load', () => {
                     let currentIndex = 0;
                     const totalCards = cards.length;
 
-                    // Clone cards for infinite loop effect
-                    // We need enough clones to cover the view
-                    const cloneCount = 2; // Number of clones on each side
+                    // Clonar cards para efeito de loop infinito
+                    const cloneCount = 2; // Número de clones em cada lado
 
-                    // Clone last few cards to beginning
+                    // Clonar últimos cards para o início
                     for (let i = 0; i < cloneCount; i++) {
                         const clone = cards[totalCards - 1 - i].cloneNode(true);
                         clone.classList.add('clone');
                         slider.insertBefore(clone, slider.firstChild);
                     }
 
-                    // Clone first few cards to end
+                    // Clonar primeiros cards para o final
                     for (let i = 0; i < cloneCount; i++) {
                         const clone = cards[i].cloneNode(true);
                         clone.classList.add('clone');
@@ -255,21 +259,20 @@ window.addEventListener('load', () => {
 
                     const allCards = slider.querySelectorAll('.cards');
 
-                    // Update layout function
+                    // Função de atualização do layout
                     const updateCarousel = (animate = true) => {
                         const cardWidth = allCards[0].offsetWidth;
-                        const gap = 20; // gap-5 is 20px
+                        const gap = 20; // gap-5 é 20px
                         const itemWidth = cardWidth + gap;
 
-                        // Calculate offset to center the current card
-                        // We start at index + cloneCount because of the prepended clones
+                        // Calcular offset para centralizar o card atual
                         const activeIndex = currentIndex + cloneCount;
 
-                        // Center position calculation
+                        // Cálculo da posição central
                         const containerWidth = slider.parentElement.offsetWidth;
                         const centerOffset = (containerWidth - cardWidth) / 2;
 
-                        // Calculate transform
+                        // Calcular transformação
                         const x = -(activeIndex * itemWidth) + centerOffset;
 
                         if (animate) {
@@ -284,7 +287,7 @@ window.addEventListener('load', () => {
                             update3DEffect(allCards, slider);
                         }
 
-                        // Update text visibility
+                        // Atualizar visibilidade do texto
                         allCards.forEach((card, index) => {
                             const text = card.querySelector('.texto');
                             if (text) {
@@ -297,6 +300,7 @@ window.addEventListener('load', () => {
                         });
                     };
 
+                    // Efeito 3D (Escala e Opacidade)
                     const update3DEffect = (cards, sliderContainer) => {
                         const center = sliderContainer.parentElement.offsetWidth / 2;
                         const sliderRect = sliderContainer.getBoundingClientRect();
@@ -305,15 +309,15 @@ window.addEventListener('load', () => {
                         cards.forEach(card => {
                             const rect = card.getBoundingClientRect();
                             const cardCenter = rect.left + rect.width / 2;
-                            // Calculate distance relative to the viewport center
+                            // Calcular distância relativa ao centro da viewport
                             const dist = Math.abs(window.innerWidth / 2 - cardCenter);
 
-                            // Calculate scale and opacity based on distance from center
+                            // Calcular escala e opacidade baseada na distância do centro
                             let scale = 1 - (dist / window.innerWidth) * 0.4;
-                            scale = Math.max(0.85, Math.min(1.05, scale)); // Clamp scale
+                            scale = Math.max(0.85, Math.min(1.05, scale)); // Limitar escala
 
                             let opacity = 1 - (dist / window.innerWidth) * 0.6;
-                            opacity = Math.max(0.4, Math.min(1, opacity)); // Clamp opacity
+                            opacity = Math.max(0.4, Math.min(1, opacity)); // Limitar opacidade
 
                             gsap.set(card, {
                                 scale: scale,
@@ -325,19 +329,19 @@ window.addEventListener('load', () => {
 
                     let isAnimating = false;
 
-                    // Navigation handlers
+                    // Handlers de Navegação
                     const handleNext = () => {
                         if (isAnimating) return;
                         isAnimating = true;
 
                         currentIndex++;
                         updateCarousel();
-                        // Check for loop
+                        // Verificar loop
                         if (currentIndex >= totalCards) {
-                            // Wait for animation to finish then reset
+                            // Esperar animação terminar e resetar
                             setTimeout(() => {
                                 currentIndex = 0;
-                                updateCarousel(false); // No animation for reset
+                                updateCarousel(false); // Sem animação para reset
                                 isAnimating = false;
                             }, 500);
                         } else {
@@ -354,12 +358,12 @@ window.addEventListener('load', () => {
                         currentIndex--;
                         updateCarousel();
 
-                        // Check for loop
+                        // Verificar loop
                         if (currentIndex < 0) {
-                            // Wait for animation to finish then reset
+                            // Esperar animação terminar e resetar
                             setTimeout(() => {
                                 currentIndex = totalCards - 1;
-                                updateCarousel(false); // No animation for reset
+                                updateCarousel(false); // Sem animação para reset
                                 isAnimating = false;
                             }, 500);
                         } else {
@@ -372,25 +376,173 @@ window.addEventListener('load', () => {
                     nextBtn.addEventListener('click', handleNext);
                     prevBtn.addEventListener('click', handlePrev);
 
-                    // Initial setup
-                    // Wait a moment for layout to stabilize
+                    // Configuração inicial
+                    // Esperar um momento para o layout estabilizar
                     setTimeout(() => {
                         updateCarousel(false);
                     }, 100);
 
-                    // Handle resize
+                    // Lidar com redimensionamento
                     window.addEventListener('resize', () => updateCarousel(false));
                 }
             }
         }
 
-        // Initialize both carousels
+        // Inicializar ambos os carrosséis
         initCarousel('#card-slider', '#prev-btn', '#next-btn');
         initCarousel('#card-slider-2', '#prev-btn-2', '#next-btn-2');
         document.querySelector('#btn-ler').addEventListener('click', () => {
             window.scrollTo({ top: 1100, behavior: 'smooth' });
         });
     }
+
+    // Animação para a Seção Pegada Ecológica
+    const tlFootprint = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#pegada-ecologica",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlFootprint.fromTo(".animate-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+            "-=0.4"
+        )
+        .fromTo(".animate-graph",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        )
+        .to("#earth-bar", { width: "85%", duration: 2, ease: "power2.out" }, "-=0.4");
+
+    // Contador numérico animado
+    let earthObj = { value: 0 };
+    gsap.to(earthObj, {
+        value: 1.7,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#pegada-ecologica",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        },
+        onUpdate: function () {
+            document.getElementById("earth-counter").innerText = earthObj.value.toFixed(1).replace('.', ',');
+        }
+    });
+
+
+
+    // Animação para a Seção Motor do Excesso
+    const tlMotor = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#motor-excesso",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlMotor.fromTo(".animate-motor-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-motor-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        );
+
+    // Animação de Marquee Infinito (Esteira)
+    const marqueeTween = gsap.to(".marquee-content", {
+        xPercent: -50, // Move metade da largura (já que duplicamos os itens)
+        ease: "none",
+        duration: 30, // Mais lento para melhor legibilidade
+        repeat: -1
+    });
+
+    // Pausar Marquee ao passar o mouse
+    const marqueeWrapper = document.querySelector(".marquee-wrapper");
+    if (marqueeWrapper) {
+        marqueeWrapper.addEventListener("mouseenter", () => marqueeTween.pause());
+        marqueeWrapper.addEventListener("mouseleave", () => marqueeTween.play());
+    }
+
+    // Animação para a Seção Quiz CTA
+    gsap.from("#quiz-cta .max-w-4xl", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#quiz-cta",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    // Animação dos Blobs (Fundo Dinâmico)
+    gsap.to("#blob1", {
+        x: "30%",
+        y: "20%",
+        duration: 8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+
+    gsap.to("#blob2", {
+        x: "-20%",
+        y: "-30%",
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+
+    // Animação para a Seção Nosso Impacto
+    const tlImpact = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#nosso-impacto",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlImpact.fromTo(".animate-impact-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-impact-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        )
+        .fromTo(".impact-card",
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+            "-=0.4"
+        );
+
+    // Animação dos Contadores
+    gsap.utils.toArray(".counter").forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        gsap.to(counter, {
+            innerText: target,
+            duration: 2,
+            snap: { innerText: 1 },
+            scrollTrigger: {
+                trigger: "#nosso-impacto",
+                start: "top 75%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
 
     // Refresh do ScrollTrigger após inicialização
     ScrollTrigger.refresh();

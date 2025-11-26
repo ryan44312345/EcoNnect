@@ -31,9 +31,12 @@
     <div class="w-6 absolute z-50 top-1/30 left-9/10 sm:hidden">
         <button class="cursor-pointer" id="menu-btn">
             <div class="">
-                <div id="hambuguer1" class="w-6 h-1 mt-[4px] rounded-full bg-black block"></div>
-                <div id="hambuguer2" class="w-6 h-1 mt-[4px] rounded-full bg-black block"></div>
-                <div id="hambuguer3" class="w-6 h-1 mt-[4px] rounded-full bg-black block"></div>
+                <div id="hambuguer1" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+                <div id="hambuguer2" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+                <div id="hambuguer3" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
             </div>
         </button>
     </div>
@@ -44,42 +47,41 @@
                 <!-- HEADER MOVIDO PARA DENTRO -->
                 <header class="w-full h-[89px] bg-verde-escuro" id="header">
                     <!-- Menu lateral mobile -->
-                    <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-20"
+                    <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-40 bg-verde-escuro"
                         id="aside">
-                        <div class="h-full bg-laranja-pastel w-full z-20">
-                            <div class="grid-flow-col mt-18">
-                                <div class="w-full border-t cursor-pointer text-black"></div>
-                                <div
-                                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-400">
-                                    <a href="registro.html">
-                                        <div class="w-full">
-                                            <h1 class="px-3 py-2 text-center">Inicio</h1>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div
-                                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-400">
-                                    <a href="registro.html">
-                                        <div class="w-full">
-                                            <h1 class="px-3 py-2 text-center">Registro</h1>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div
-                                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-400">
-                                    <a href="alimento.html">
-                                        <div class="w-full">
-                                            <h1 class="px-3 py-2 text-center">Alimentos</h1>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div
-                                    class="mx-auto w-2/3 mt-7 cursor-pointer bg-verde-escuro rounded-lg transition-all transform ease-in-out duration-400">
-                                    <a href="duvida.html">
-                                        <div class="w-full">
-                                            <h1 class="px-3 py-2 text-center">Dúvidas</h1>
-                                        </div>
-                                    </a>
+                        <!-- Logo in Sidebar -->
+                        <div class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4">
+                            <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                            <h1 class="font-libre text-4xl text-laranja-claro">EcoNnect</h1>
+                        </div>
+
+                        <div class="h-full w-full flex flex-col justify-center items-center gap-8">
+                            <!-- Close Button (Optional, or reuse hamburger) -->
+
+                            <!-- Menu Items -->
+                            <div
+                                class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                                <a href="#" id="mobile-inicio">
+                                    <div class="w-full">
+                                        <h1 class="px-3 py-4 text-center font-libre text-xl">Inicio</h1>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div
+                                class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                                <a href="#" id="mobile-sobre">
+                                    <div class="w-full">
+                                        <h1 class="px-3 py-4 text-center font-libre text-xl">Sobre</h1>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300"
+                                id="mobile-btn-idioma">
+                                <div class="w-full flex justify-center items-center gap-3 py-4">
+                                    <img src="img/11654500.png" alt="Idioma" class="size-6" id="mobile-img-idioma">
+                                    <h1 class="font-libre text-xl" id="mobile-txt-idioma">Troca de idioma</h1>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +148,19 @@
                 </section>
 
                 <!-- CONTAINER COM CONTEÚDOS SOBREPOSTOS -->
-                <div id="intro-container" class="relative h-screen overflow-hidden">
+                <div id="intro-container" class="relative h-screen w-full overflow-hidden bg-cinza-escuro">
+
+                    <!-- Background Video -->
+                    <div class="absolute inset-0 z-0">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
+                            <source src="img/forest-bg.mp4" type="video/mp4">
+                        </video>
+                        <!-- Overlay Gradient for better text readability -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-cinza-escuro/80 via-cinza-escuro/50 to-cinza-escuro">
+                        </div>
+                    </div>
+
                     <section
                         class="secao lg:absolute h-full lg:h-screen bg-cinza-escuro w-full flex-none top-0 left-0 z-10">
                         <div class="flex flex-col">
@@ -232,6 +246,284 @@
                         </div>
                     </section>
                 </div>
+
+                <!-- SEÇÃO PEGADA ECOLÓGICA -->
+                <section id="pegada-ecologica"
+                    class="bg-cinza-escuro py-12 lg:py-24 px-6 w-full relative z-30 border-t border-white/5">
+                    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
+                        <!-- Texto -->
+                        <div class="w-full lg:w-1/2 flex flex-col gap-6">
+                            <h2 id="pegada-title"
+                                class="animate-title text-laranja-claro font-libre italic text-4xl lg:text-6xl leading-tight opacity-0">
+                                A Conta <span class="text-laranja-pastel">Não Fecha</span>
+                            </h2>
+                            <p id="pegada-text-1"
+                                class="animate-text font-teachers text-laranja-claro text-lg lg:text-xl leading-relaxed opacity-0">
+                                Você sabia que o dia da sobrecarga da Terra chega mais cedo a cada ano?
+                                Atualmente, a humanidade consome recursos naturais <span
+                                    class="font-bold text-laranja-pastel">1,7 vezes</span> mais rápido do que o planeta
+                                consegue regenerar.
+                            </p>
+                            <p id="pegada-text-2"
+                                class="animate-text font-teachers text-laranja-claro text-lg lg:text-xl leading-relaxed opacity-0">
+                                Vivemos como se tivéssemos quase dois planetas à disposição. Estamos operando no "cheque
+                                especial" da natureza.
+                            </p>
+                        </div>
+
+                        <!-- Gráfico / Visual -->
+                        <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                            <div class="animate-graph relative w-full pt-8 pb-4 opacity-0">
+                                <!-- Labels -->
+                                <div
+                                    class="flex justify-between text-laranja-claro font-teachers text-sm mb-2 font-bold opacity-80">
+                                    <span>0</span>
+                                    <span class="absolute left-1/2 -translate-x-1/2 -top-6 text-laranja-pastel">1 Terra
+                                        (Limite)</span>
+                                    <span>2 Terras</span>
+                                </div>
+
+                                <!-- Barra Base -->
+                                <div
+                                    class="w-full h-14 bg-black/40 rounded-full overflow-hidden relative border border-white/10 shadow-inner">
+                                    <!-- Marca de 1 Terra -->
+                                    <div
+                                        class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/30 z-10 border-dashed border-l-2 border-white/30 h-full">
+                                    </div>
+
+                                    <!-- Barra de Progresso -->
+                                    <div id="earth-bar"
+                                        class="h-full bg-gradient-to-r from-[#4ade80] via-[#fbbf24] to-[#ef4444] rounded-full w-0 relative shadow-[0_0_20px_rgba(239,68,68,0.5)]">
+                                        <!-- Glow effect at the end -->
+                                        <div
+                                            class="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white/50 to-transparent opacity-50">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Counter -->
+                                <div class="text-center mt-6">
+                                    <div class="inline-flex items-baseline gap-2">
+                                        <span
+                                            class="font-libre text-7xl lg:text-9xl text-laranja-pastel font-bold tracking-tighter"
+                                            id="earth-counter">0.0</span>
+                                        <span class="font-teachers text-2xl text-laranja-claro font-medium"
+                                            id="pegada-counter-label">Terras</span>
+                                    </div>
+                                    <p class="text-laranja-claro/60 text-sm mt-2 font-teachers"
+                                        id="pegada-counter-subtitle">Consumo atual da
+                                        humanidade</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!-- SEÇÃO MOTOR DO EXCESSO -->
+                <section id="motor-excesso"
+                    class="bg-cinza-escuro py-12 lg:py-24 w-full relative z-30 border-t border-white/5 overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+                        <h2 id="motor-title"
+                            class="animate-motor-title text-laranja-claro font-libre italic text-4xl lg:text-6xl leading-tight opacity-0">
+                            O Motor do <span class="text-laranja-pastel">Excesso</span>
+                        </h2>
+                        <p id="motor-text"
+                            class="animate-motor-text font-teachers text-laranja-claro text-lg lg:text-xl mt-4 max-w-3xl mx-auto opacity-0">
+                            Não é apenas consumo, é desperdício sistêmico. A cultura do descartável, impulsionada pela
+                            obsolescência programada e pelo fast fashion, transformou produtos duráveis em lixo
+                            instantâneo.
+                        </p>
+                    </div>
+
+                    <!-- Marquee Container with Fade Edges -->
+                    <div class="w-full py-10 bg-white/5 border-y border-white/5 relative group">
+                        <!-- Fade Gradients -->
+                        <div
+                            class="absolute left-0 top-0 bottom-0 w-20 lg:w-40 bg-gradient-to-r from-cinza-escuro to-transparent z-10 pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute right-0 top-0 bottom-0 w-20 lg:w-40 bg-gradient-to-l from-cinza-escuro to-transparent z-10 pointer-events-none">
+                        </div>
+
+                        <div class="marquee-wrapper overflow-hidden flex">
+                            <div class="marquee-content flex gap-6 lg:gap-8 items-center whitespace-nowrap pl-6">
+                                <!-- Card Item Template -->
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded-full">Alto
+                                            Impacto</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg motor-card-title">
+                                            Descarte</h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal motor-card-text">Lixo
+                                            gerado por
+                                            produtos de uso único.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-orange-400 bg-orange-400/10 px-2 py-1 rounded-full">Crítico</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg motor-card-title">
+                                            Fast Fashion</h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal motor-card-text">
+                                            Roupas baratas, ciclo
+                                            de vida curto.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">Crescente</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg motor-card-title">
+                                            Obsolescência
+                                        </h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal motor-card-text">Feito
+                                            para quebrar ou
+                                            ficar lento.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded-full">Alto
+                                            Impacto</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg motor-card-title">
+                                            Energia</h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal motor-card-text">
+                                            Demanda energética
+                                            insustentável.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Duplicates for Loop -->
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded-full">Alto
+                                            Impacto</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg">Descarte</h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal">Lixo gerado por
+                                            produtos de uso único.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-orange-400 bg-orange-400/10 px-2 py-1 rounded-full">Crítico</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg">Fast Fashion</h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal">Roupas baratas, ciclo
+                                            de vida curto.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">Crescente</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg">Obsolescência
+                                        </h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal">Feito para quebrar ou
+                                            ficar lento.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="w-[280px] h-[160px] bg-cinza-escuro border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-laranja-pastel/50 transition-colors duration-300 shrink-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="p-2 bg-white/5 rounded-lg text-laranja-pastel">
+                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded-full">Alto
+                                            Impacto</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-laranja-claro font-teachers font-bold text-lg">Energia</h3>
+                                        <p class="text-laranja-claro/60 text-sm whitespace-normal">Demanda energética
+                                            insustentável.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- SEÇÃO ONDE OCORRE -->
                 <section
@@ -494,6 +786,91 @@
                     </div>
                     <button class="bg-laranja-pastel w-40 mx-auto px-3 py-4 rounded-full mt-15 cursor-pointer">Ler
                         mais</button> -->
+                </section>
+
+
+
+                <!-- SEÇÃO QUIZ CTA -->
+                <section id="quiz-cta" class="relative py-24 px-6 overflow-hidden bg-cinza-escuro">
+                    <!-- Animated Background Blobs -->
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div id="blob1"
+                            class="absolute -top-1/2 -left-1/2 w-[800px] h-[800px] bg-laranja-pastel/10 rounded-full blur-[100px]">
+                        </div>
+                        <div id="blob2"
+                            class="absolute -bottom-1/2 -right-1/2 w-[600px] h-[600px] bg-orange-900/20 rounded-full blur-[80px]">
+                        </div>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto relative z-10 text-center">
+                        <h2 id="quiz-title" class="text-3xl lg:text-5xl font-libre italic text-laranja-claro mb-6">
+                            Você conhece sua <span class="text-laranja-pastel">Pegada Ecológica?</span>
+                        </h2>
+                        <p id="quiz-text"
+                            class="font-teachers text-laranja-claro/80 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+                            Descubra o impacto do seu estilo de vida no planeta e receba dicas personalizadas de como
+                            melhorá-lo
+                            em nosso Quiz interativo.
+                        </p>
+                        <a href="quiz.html"
+                            class="inline-block bg-laranja-pastel hover:bg-orange-600 text-cinza-escuro font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-laranja-pastel/50">
+                            <span id="quiz-btn">Fazer o Quiz Agora</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- SEÇÃO NOSSO IMPACTO (SOCIAL PROOF) -->
+                <section id="nosso-impacto" class="bg-cinza-escuro py-20 border-t border-white/5">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <h2 id="impacto-title"
+                                class="animate-impact-title text-laranja-claro font-libre italic text-4xl lg:text-6xl leading-tight opacity-0">
+                                Nosso <span class="text-laranja-pastel">Impacto</span>
+                            </h2>
+                            <p id="impacto-subtitle"
+                                class="animate-impact-text font-teachers text-laranja-claro text-lg lg:text-xl mt-4 max-w-3xl mx-auto opacity-0">
+                                Juntos, estamos construindo um futuro mais verde e consciente. Confira os números que
+                                alcançamos com a ajuda da nossa comunidade.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                            <!-- Counter 1 -->
+                            <div class="impact-card opacity-0 transform translate-y-8">
+                                <div class="text-laranja-pastel text-5xl lg:text-6xl font-bold mb-2">
+                                    <span class="counter" data-target="1500">0</span>+
+                                </div>
+                                <p id="label-voluntarios" class="text-laranja-claro font-teachers text-lg">Voluntários
+                                </p>
+                            </div>
+
+                            <!-- Counter 2 -->
+                            <div class="impact-card opacity-0 transform translate-y-8">
+                                <div class="text-laranja-pastel text-5xl lg:text-6xl font-bold mb-2">
+                                    <span class="counter" data-target="3200">0</span>
+                                </div>
+                                <p id="label-arvores" class="text-laranja-claro font-teachers text-lg">Árvores Plantadas
+                                </p>
+                            </div>
+
+                            <!-- Counter 3 -->
+                            <div class="impact-card opacity-0 transform translate-y-8">
+                                <div class="text-laranja-pastel text-5xl lg:text-6xl font-bold mb-2">
+                                    <span class="counter" data-target="50">0</span>ton
+                                </div>
+                                <p id="label-lixo" class="text-laranja-claro font-teachers text-lg">Lixo Recolhido</p>
+                            </div>
+
+                            <!-- Counter 4 -->
+                            <div class="impact-card opacity-0 transform translate-y-8">
+                                <div class="text-laranja-pastel text-5xl lg:text-6xl font-bold mb-2">
+                                    <span class="counter" data-target="25">0</span>
+                                </div>
+                                <p id="label-parceiros" class="text-laranja-claro font-teachers text-lg">Parceiros
+                                    Globais</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section class="section-footer bg-black py-12">
                     <div class="max-w-7xl mx-auto px-6">
