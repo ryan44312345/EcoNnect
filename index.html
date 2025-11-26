@@ -536,7 +536,7 @@
                             Onde
                             ocorre?</h2>
                         <p id="onde-ocorre-subtitle"
-                            class="font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mb-5 px-6">
+                            class="font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mb-3 px-6">
                             O <span class="text-laranja-pastel">fenômeno é global</span>, mas
                             assume diferentes intensidades dependendo da região:</p>
                         <div class="w-full overflow-hidden lg:overflow-visible">
@@ -926,7 +926,12 @@
 
     <script src="index.js"></script>
     <script src="anime.js"></script>
-    <script src="scrollanimate.js"></script>
+    <script>
+        const isMobile = window.innerWidth < 1024;
+        const script = document.createElement('script');
+        script.src = isMobile ? 'scrollanimate-mobile.js' : 'scrollanimate-desktop.js';
+        document.body.appendChild(script);
+    </script>
 </body>
 
 </html>
