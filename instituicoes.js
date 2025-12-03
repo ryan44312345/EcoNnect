@@ -2,7 +2,7 @@ const instituicoes = [
     {
         title: "WWF Brasil",
         description: "O WWF-Brasil é uma organização não governamental brasileira dedicada à conservação da natureza, com o objetivo de harmonizar a atividade humana com a conservação da biodiversidade.",
-        image: "img/instituicao.jpg",
+        image: "https://vagas.sc/wp-content/uploads/2023/12/home-office-wwf-brasil-abriu-vaga-para-trabalhar-em-casa-838x471.jpg",
         link: "https://www.wwf.org.br/",
         location: "Brasília, DF",
         contact: "(61) 3364-7400"
@@ -10,7 +10,7 @@ const instituicoes = [
     {
         title: "SOS Mata Atlântica",
         description: "A Fundação SOS Mata Atlântica é uma ONG ambiental brasileira. Atua na defesa da remanescente de Mata Atlântica no Brasil.",
-        image: "img/forest-bg.mp4",
+        image: "https://organicsnewsbrasil.com.br/wp-content/uploads/2016/08/SOS.jpg",
         link: "https://www.sosma.org.br/",
         location: "São Paulo, SP",
         contact: "(11) 3262-4088"
@@ -18,7 +18,7 @@ const instituicoes = [
     {
         title: "Greenpeace Brasil",
         description: "O Greenpeace é uma organização global independente que atua para defender o meio ambiente e promover a paz, inspirando as pessoas a mudarem atitudes e comportamentos.",
-        image: "img/oceanos.png",
+        image: "https://www.greenpeace.org/static/planet4-brasil-stateless/2018/07/GP0STRUY6_PressMedia-2048x1366.jpg",
         link: "https://www.greenpeace.org/brasil/",
         location: "São Paulo, SP",
         contact: "contato@greenpeace.org"
@@ -26,7 +26,7 @@ const instituicoes = [
     {
         title: "Instituto Socioambiental (ISA)",
         description: "O ISA propõe soluções integradas a questões sociais e ambientais com foco central na defesa de bens e direitos sociais, coletivos e difusos.",
-        image: "img/imagem.png",
+        image: "https://www.socioambiental.org/sites/default/files/styles/large/public/2024-03/04%20Banner%20Site%20ISA%201360x600%20-%202.png?itok=K9vhqx6A",
         link: "https://www.socioambiental.org/",
         location: "São Paulo, SP",
         contact: "(11) 3515-8900"
@@ -43,11 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const clone = template.content.cloneNode(true);
 
             const bgDiv = clone.querySelector('.card-bg');
-            if (item.image.endsWith('.mp4')) {
-                bgDiv.style.backgroundImage = `url('img/instituicao.jpg')`;
-            } else {
-                bgDiv.style.backgroundImage = `url('${item.image}')`;
-            }
+            bgDiv.style.backgroundImage = `url('${item.image}')`;
 
             clone.querySelector('.card-title').textContent = item.title;
             clone.querySelector('.card-desc').textContent = item.description;
