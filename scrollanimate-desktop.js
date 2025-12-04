@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
                 end: "+=4000",
                 scrub: true,
                 pin: true,
-                markers: true,
+                markers: false,
             }
         });
 
@@ -170,7 +170,7 @@ window.addEventListener('load', () => {
             trigger: '.section-footer',
             start: 'top 80%', // Inicia quando o topo da seção está a 80% da viewport
             toggleActions: 'play none none reverse', // play ao entrar, reverse ao sair
-            markers: true,
+            markers: false,
         },
         y: 50,
         autoAlpha: 0,
