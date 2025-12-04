@@ -50,10 +50,11 @@
                     <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-40 bg-verde-escuro"
                         id="aside">
                         <!-- Logo in Sidebar -->
-                        <div class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4">
+                        <a href="index.html"
+                            class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4 cursor-pointer">
                             <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
                             <h1 class="font-libre text-4xl text-laranja-claro">EcoNnect</h1>
-                        </div>
+                        </a>
 
                         <div class="h-full w-full flex flex-col justify-center items-center gap-8">
                             <!-- Close Button (Optional, or reuse hamburger) -->
@@ -70,7 +71,7 @@
 
                             <div
                                 class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
-                                <a href="#" id="mobile-sobre">
+                                <a href="sobre.html" id="mobile-sobre">
                                     <div class="w-full">
                                         <h1 class="px-3 py-4 text-center font-libre text-xl">Sobre</h1>
                                     </div>
@@ -91,10 +92,14 @@
                     <div class="w-full h-full flex flex-row justify-between">
                         <div class="flex flex-row">
                             <div class="py-4 ml-8 mr-5">
-                                <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                                <a href="index.html">
+                                    <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                                </a>
                             </div>
                             <div class="self-center text-white font-libre text-4xl text-laranja-claro">
-                                <h1>EcoNnect</h1>
+                                <a href="index.html">
+                                    <h1>EcoNnect</h1>
+                                </a>
                             </div>
                         </div>
                         <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
@@ -102,7 +107,7 @@
                                 <a href="#" id="inicio">Inicio</a>
                             </div>
                             <div>
-                                <a href="#" id="sobre">Sobre</a>
+                                <a href="sobre.html" id="sobre">Sobre</a>
                             </div>
                             <div class="flex flex-row gap-1" id="btn-idioma">
                                 <div class="mt-1">
@@ -150,17 +155,6 @@
                 <!-- CONTAINER COM CONTEÚDOS SOBREPOSTOS -->
                 <div id="intro-container" class="relative h-screen w-full overflow-hidden bg-cinza-escuro">
 
-                    <!-- Background Video -->
-                    <div class="absolute inset-0 z-0">
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
-                            <source src="img/forest-bg.mp4" type="video/mp4">
-                        </video>
-                        <!-- Overlay Gradient for better text readability -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-cinza-escuro/80 via-cinza-escuro/50 to-cinza-escuro">
-                        </div>
-                    </div>
-
                     <section
                         class="secao lg:absolute h-full lg:h-screen bg-cinza-escuro w-full flex-none top-0 left-0 z-10">
                         <div class="flex flex-col">
@@ -203,7 +197,7 @@
                                 Recursos
                                 Naturais</p>
                             <div class="mx-auto mt-5 w-full max-w-[900px] px-4 lg:px-0">
-                                <img src="img/image.png" alt="Natureza"
+                                <img src="img/floresta-dematada.jpg" alt="Natureza"
                                     class="rounded-3xl w-full aspect-[7/4] h-auto object-cover">
                             </div>
                             <div class="mx-auto mt-3 w-full max-w-[900px] px-4 lg:px-0">
@@ -544,14 +538,14 @@
                             Onde
                             ocorre?</h2>
                         <p id="onde-ocorre-subtitle"
-                            class="animate-onde-text font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mb-3 px-6">
+                            class="font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mb-3 px-6">
                             O <span class="text-laranja-pastel">fenômeno é global</span>, mas
                             assume diferentes intensidades dependendo da região:</p>
                         <div class="w-full overflow-hidden lg:overflow-visible">
                             <div id="card-slider"
                                 class="flex flex-nowrap lg:flex-wrap gap-5 justify-start lg:justify-center mt-5 w-full">
-                                <div
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                <div class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-90 rounded-xl bg-[url(img/desmatamento.jpg)] bg-center bg-cover">
                                     </div>
@@ -573,8 +567,8 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                <div class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-90 rounded-xl bg-[url(img/oceanos.png)] bg-center bg-cover">
                                     </div>
@@ -597,8 +591,8 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                <div class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-90 rounded-xl bg-[url(img/urbano.png)] bg-center bg-cover">
                                     </div>
@@ -619,8 +613,8 @@
                                             econômico costuma ignorar a preservação ambiental.</p>
                                     </div>
                                 </div>
-                                <div
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] overflow-hidden group">
+                                <div class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-90 rounded-xl bg-[url(img/sertão.webp)] bg-center bg-cover">
                                     </div>
@@ -648,11 +642,11 @@
                         <!-- Navigation Buttons for Mobile -->
                         <div class="flex justify-center gap-4 mt-4 lg:hidden w-full z-10">
                             <button id="prev-btn"
-                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg">
+                                class="bg-laranja-pastel text-cinza-escuro font-bold text-3xl py-3 px-8 rounded-full shadow-lg">
                                 &larr;
                             </button>
                             <button id="next-btn"
-                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg">
+                                class="bg-laranja-pastel text-cinza-escuro font-bold text-3xl py-3 px-8 rounded-full shadow-lg">
                                 &rarr;
                             </button>
                         </div>
@@ -666,7 +660,7 @@
                     </h2>
                     <div class="flex flex-col max-w-full gap-5 items-center h-full">
                         <p id="como-resolver-subtitle"
-                            class="animate-resolver-text font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mt-3 mb-3">
+                            class="font-teachers text-laranja-claro text-center text-lg md:text-2xl font-bold mt-3 mb-3">
                             Existe
                             <span class="text-laranja-pastel">várias maneiras</span> de ajudar a resolver esse problema
                             aqui está algumas delas:
@@ -675,7 +669,8 @@
                             <div id="card-slider-2"
                                 class="flex flex-nowrap lg:flex-wrap gap-5 justify-start lg:justify-center mt-5 w-full">
                                 <a href="instituicoes.html"
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg block overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-50 rounded-xl bg-[url(img/instituicao.jpg)] bg-center bg-cover">
                                     </div>
@@ -696,8 +691,9 @@
                                             ampliar o impacto positivo.</p>
                                     </div>
                                 </a>
-                                <a href="noticias.html"
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                <a href="denuncias.html"
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg block overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-50 rounded-xl bg-[url(img/close-up-homem-segurando-megafone.jpg)] bg-center bg-cover">
                                     </div>
@@ -718,7 +714,8 @@
                                     </div>
                                 </a>
                                 <a href="noticias.html"
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg block overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-50 rounded-xl bg-[url(img/jornal.png)] bg-center bg-cover">
                                     </div>
@@ -738,7 +735,8 @@
                                     </div>
                                 </a>
                                 <a href="voluntariado.html"
-                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-[0_8px_16px_rgba(0,0,0,0.6)] block overflow-hidden group">
+                                    class="cards rounded-xl w-[85vw] shrink-0 md:w-[400px] lg:w-[400px] aspect-[3/4] lg:aspect-auto h-auto lg:h-[600px] relative border-2 shadow-lg block overflow-hidden group"
+                                    style="will-change: transform, opacity; contain: layout style paint;">
                                     <div
                                         class="h-full brightness-50 rounded-xl bg-[url(img/crianca-voluntaria-segurando-uma-pequena-arvore-de-mudas-em-suas-maos.jpg)] bg-center bg-cover">
                                     </div>
@@ -765,11 +763,11 @@
                         <!-- Navigation Buttons for Mobile (Second Slider) -->
                         <div class="flex justify-center gap-4 mt-4 lg:hidden w-full z-10">
                             <button id="prev-btn-2"
-                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg">
+                                class="bg-laranja-pastel text-cinza-escuro font-bold text-3xl py-3 px-8 rounded-full shadow-lg">
                                 &larr;
                             </button>
                             <button id="next-btn-2"
-                                class="bg-laranja-pastel text-cinza-escuro font-bold py-2 px-6 rounded-full shadow-lg">
+                                class="bg-laranja-pastel text-cinza-escuro font-bold text-3xl py-3 px-8 rounded-full shadow-lg">
                                 &rarr;
                             </button>
                         </div>
@@ -870,14 +868,14 @@
                             <!-- Phone Section -->
                             <div class="text-center">
                                 <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Phone</h3>
-                                <p class="footer-text text-laranja-claro font-teachers text-2xl">(123) 456-7890</p>
+                                <p class="footer-text text-laranja-claro font-teachers text-2xl">+55 (12) 99745-3210</p>
                             </div>
 
                             <!-- Email Section -->
                             <div class="text-center">
                                 <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Email</h3>
                                 <p class="footer-text text-laranja-claro font-teachers text-lg lg:text-2xl">
-                                    hello@reallygreatsite.com</p>
+                                    contato@econnect.com</p>
                             </div>
 
                             <!-- Social Section -->
@@ -906,14 +904,14 @@
         </section>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- GSAP Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 
-    <script src="index.js"></script>
-    <script src="anime.js"></script>
+    <!-- Site Scripts -->
+    <script src="index.js" defer></script>
     <script>
         const isMobile = window.innerWidth < 1024;
         const script = document.createElement('script');

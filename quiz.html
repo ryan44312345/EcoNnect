@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz do Consumo Consciente</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'verde-escuro': '#152409',
+            'laranja-claro': '#f4efe5',
+            'laranja-pastel': '#ffd580',
+            'cinza-escuro': '#2e2e28',
+            'verde-acizentado': '#163943',
+            'very-dark-blue': '#000005',
+            'rose-50': '#7b284f',
+            'rose-800': '#fff5fa'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+
+    :root {
+      --color-verde-escuro: #152409;
+      --color-laranja-claro: #f4efe5;
+      --color-laranja-pastel: #ffd580;
+      --color-cinza-escuro: #2e2e28;
+      --color-verde-acizentado: #163943;
+      --color-very-dark-blue: hsl(240, 100%, 5%);
+      --color-rose-50: #7b284f;
+      --color-rose-800: #fff5fa;
+    }
+
+    .display-font { font-family: 'Libre Baskerville', serif; font-weight: 700; }
+    .display-font-alt { font-family: 'Teachers', sans-serif; font-weight: 500; }
+  </style>
+</head>
+
+<body class="min-h-screen bg-cover bg-center flex items-center justify-center bg-[url('img/backgroung.png')] display-font-alt">
+  <div class="bg-laranja-claro/60 backdrop-blur-sm rounded-2xl shadow-xl max-w-4xl w-full mx-4 my-8 p-6 md:p-10">
+    <header class="mb-8 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-verde-escuro display-font">
+        Quiz do Consumo Consciente
+      </h1>
+      <p class="mt-3 text-verde-acizentado text-lg md:text-xl">
+        Descubra como estão seus hábitos de consumo e receba dicas para
+        reduzir o impacto no meio ambiente.
+      </p>
+    </header>
+
+    <form id="quizForm" class="space-y-8">
+      <!-- formulário completo -->
+      <section class="space-y-2">
+        <label for="nome" class="block text-sm font-semibold text-brand-darkgreen">
+          Qual é o seu nome?
+        </label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome"
+          class="w-full rounded-lg border border-brand-sage/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage" />
+      </section>
+
+      <!-- INSTRUÇÕES ESCALA -->
+      <section class="bg-laranja-claro border border-brand-sage/20 rounded-xl p-4">
+        <h2 class="font-semibold text-brand-darkgreen mb-2 display-font-alt">
+          Como responder
+        </h2>
+        <p class="text-sm text-brand-darktext/80">
+          Para cada afirmação, escolha um número de 1 a 5:
+        </p>
+        <ul class="mt-2 text-sm text-brand-darktext/80 space-y-1">
+          <li>1 = Discordo totalmente</li>
+          <li>2 = Discordo</li>
+          <li>3 = Neutro</li>
+          <li>4 = Concordo</li>
+          <li>5 = Concordo totalmente</li>
+        </ul>
+      </section>
+
+      <!-- 12 perguntas com <select> id="q1" até id="q12" -->
+
+      <section class="space-y-6">
+
+        <!-- Q1 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              1. Eu deixo a torneira aberta enquanto escovo os dentes ou lavo a louça.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q1" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q1" name="q1" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              2. Costumo tomar banhos demorados, mesmo sabendo do desperdício de água.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q2" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q2" name="q2" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- q3 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              3. Não me preocupo em fechar bem a torneira para evitar vazamentos.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q3" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q3" name="q3" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              4. Eu jogo lixo ou óleo de cozinha no ralo ou no vaso sanitário.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q4" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q4" name="q4" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              5. Para mim, não faz diferença usar copos, pratos ou talheres descartáveis diariamente.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q5" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q5" name="q5" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-grand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              6. Costumo deixar luzes acesas em ambientes onde não há ninguém.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q6" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q6" name="q6" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              7. Uso aparelhos eletrônicos (TV, carregador, computador) ligados mesmo sem estar utilizando.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q7" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q7" name="q7" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              8. Prefiro comprar produtos novos em vez de reutilizar ou consertar os antigos.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q8" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q8" name="q8" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              9. Não penso muito na quantidade de plástico ou embalagens que consumo.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q9" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q9" name="q9" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              10. Para mim, usar água potável em atividades como lavar calçadas é algo normal.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q10" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q10" name="q10" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              11. Eu acredito que pequenas atitudes individuais não fazem diferença para o meio ambiente.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q11" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q11" name="q11" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="border border-gray-200 rounded-xl p-4 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p class="font-medium text-gray-800 md:w-2/3">
+              12. Para mim, os recursos naturais são abundantes e não correm risco de acabar.
+            </p>
+            <div class="flex items-center gap-2 md:w-1/3 justify-end">
+              <label for="q12" class="text-sm text-gray-600">Escolha:</label>
+              <select id="q12" name="q12" required
+                class="rounded-lg border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage focus:border-brand-sage">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center">
+        <button type="submit"
+          class="bg-laranja-pastel hover:bg-orange-300 text-black font-bold py-2 px-8 rounded-lg shadow mt-4 transition">
+          Ver meu resultado
+        </button>
+      </div>
+    </form>
+
+    <div id="resultadoFinal" class="hidden mt-10 text-center"></div>
+  </div>
+
+  <!-- Importa a lógica compartilhada -->
+  <script src="quiz-logic.js"></script>
+
+  <script>
+    const quizForm = document.getElementById('quizForm');
+    const resultadoDiv = document.getElementById('resultadoFinal');
+
+    quizForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome = quizForm.nome.value.trim();
+      const respostasIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'];
+      const respostas = respostasIds.map(id => Number(quizForm[id]?.value));
+
+      if (!nome || respostas.some(r => isNaN(r) || r < 1 || r > 5)) {
+        alert('Por favor, preencha seu nome e responda todas as perguntas!');
+        return;
+      }
+
+      const pontuacao = respostas.reduce((soma, atual) => soma + atual, 0);
+
+      // Usa a função compartilhada
+      const resultado = avaliarResultado(nome, pontuacao);
+      salvarResultado(nome, pontuacao);
+
+      resultadoDiv.innerHTML = `
+        <div class="bg-laranja-claro border border-laranja-claro rounded-xl p-8 max-w-xl mx-auto">
+          <h3 class="text-xl text-verde-escuro font-bold mb-2 display-font">Resultado: ${resultado.categoria}</h3>
+          <p class="mb-3 text-verde-acizentado">${resultado.texto}</p>
+          <p class="font-medium text-verde-acizentado">${resultado.dica}</p>
+          <p class="mt-4 text-verde-acizentado">Sua pontuação: <span class="font-bold">${pontuacao}</span></p>
+        </div>
+      `;
+
+      resultadoDiv.classList.remove('hidden');
+      quizForm.classList.add('hidden');
+      document.getElementById('btnVerResultado').classList.remove('hidden');
+    });
+  </script>
+</body>
+
+</html>

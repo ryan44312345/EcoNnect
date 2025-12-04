@@ -47,77 +47,82 @@
             </div>
 
             <header class="w-full h-[89px] bg-verde-escuro" id="header">
-                    <!-- Menu lateral mobile -->
-                    <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-40 bg-verde-escuro"
-                        id="aside">
-                        <!-- Logo in Sidebar -->
-                        <div class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4">
-                            <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
-                            <h1 class="font-libre text-4xl text-laranja-claro">EcoNnect</h1>
+                <!-- Menu lateral mobile -->
+                <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-40 bg-verde-escuro"
+                    id="aside">
+                    <!-- Logo in Sidebar -->
+                    <a href="index.html"
+                        class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4 cursor-pointer">
+                        <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                        <h1 class="font-libre text-4xl text-laranja-claro">EcoNnect</h1>
+                    </a>
+
+                    <div class="h-full w-full flex flex-col justify-center items-center gap-8">
+                        <!-- Close Button (Optional, or reuse hamburger) -->
+
+                        <!-- Menu Items -->
+                        <div
+                            class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                            <a href="#" id="mobile-inicio">
+                                <div class="w-full">
+                                    <h1 class="px-3 py-4 text-center font-libre text-xl">Inicio</h1>
+                                </div>
+                            </a>
                         </div>
 
-                        <div class="h-full w-full flex flex-col justify-center items-center gap-8">
-                            <!-- Close Button (Optional, or reuse hamburger) -->
-
-                            <!-- Menu Items -->
-                            <div
-                                class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
-                                <a href="#" id="mobile-inicio">
-                                    <div class="w-full">
-                                        <h1 class="px-3 py-4 text-center font-libre text-xl">Inicio</h1>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div
-                                class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
-                                <a href="#" id="mobile-sobre">
-                                    <div class="w-full">
-                                        <h1 class="px-3 py-4 text-center font-libre text-xl">Sobre</h1>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300"
-                                id="mobile-btn-idioma">
-                                <div class="w-full flex justify-center items-center gap-3 py-4">
-                                    <img src="img/11654500.png" alt="Idioma" class="size-6" id="mobile-img-idioma">
-                                    <h1 class="font-libre text-xl" id="mobile-txt-idioma">Troca de idioma</h1>
+                        <div
+                            class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                            <a href="#" id="mobile-sobre">
+                                <div class="w-full">
+                                    <h1 class="px-3 py-4 text-center font-libre text-xl">Sobre</h1>
                                 </div>
+                            </a>
+                        </div>
+
+                        <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300"
+                            id="mobile-btn-idioma">
+                            <div class="w-full flex justify-center items-center gap-3 py-4">
+                                <img src="img/11654500.png" alt="Idioma" class="size-6" id="mobile-img-idioma">
+                                <h1 class="font-libre text-xl" id="mobile-txt-idioma">Troca de idioma</h1>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Conteúdo do header -->
-                    <div class="w-full h-full flex flex-row justify-between">
-                        <div class="flex flex-row">
-                            <div class="py-4 ml-8 mr-5">
+                <!-- Conteúdo do header -->
+                <div class="w-full h-full flex flex-row justify-between">
+                    <div class="flex flex-row">
+                        <div class="py-4 ml-8 mr-5">
+                            <a href="index.html">
                                 <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
-                            </div>
-                            <div class="self-center text-white font-libre text-4xl text-laranja-claro">
-                                <h1>EcoNnect</h1>
-                            </div>
+                            </a>
                         </div>
-                        <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
-                            <div>
-                                <a href="#" id="inicio">Inicio</a>
+                        <div class="self-center text-white font-libre text-4xl text-laranja-claro">
+                            <a href="index.html">
+                                <h1>EcoNnect</h1>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
+                        <div>
+                            <a href="#" id="inicio">Inicio</a>
+                        </div>
+                        <div>
+                            <a href="#" id="sobre">Sobre</a>
+                        </div>
+                        <div class="flex flex-row gap-1" id="btn-idioma">
+                            <div class="mt-1">
+                                <button class="cursor-pointer">
+                                    <img src="img/11654500.png" alt="Idioma" class="size-5" id="img-idioma">
+                                </button>
                             </div>
                             <div>
-                                <a href="#" id="sobre">Sobre</a>
-                            </div>
-                            <div class="flex flex-row gap-1" id="btn-idioma">
-                                <div class="mt-1">
-                                    <button class="cursor-pointer">
-                                        <img src="img/11654500.png" alt="Idioma" class="size-5" id="img-idioma">
-                                    </button>
-                                </div>
-                                <div>
-                                    <button class="cursor-pointer" id="txt-idioma">Troca de idioma</button>
-                                </div>
+                                <button class="cursor-pointer" id="txt-idioma">Troca de idioma</button>
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
+            </header>
 
             <main class="min-h-screen py-12 px-6">
                 <div class="max-w-7xl mx-auto">
@@ -230,14 +235,14 @@
                         <!-- Phone Section -->
                         <div class="text-center">
                             <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Phone</h3>
-                            <p class="footer-text text-laranja-claro font-teachers text-2xl">(123) 456-7890</p>
+                            <p class="footer-text text-laranja-claro font-teachers text-2xl">+55 (12) 99745-3210</p>
                         </div>
 
                         <!-- Email Section -->
                         <div class="text-center">
                             <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Email</h3>
                             <p class="footer-text text-laranja-claro font-teachers text-lg lg:text-2xl">
-                                hello@reallygreatsite.com</p>
+                                contato@econnect.com</p>
                         </div>
 
                         <!-- Social Section -->

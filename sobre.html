@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoNnect - Sobre Nós</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+        
+        @import 'tailwindcss';
+        
+        @theme {
+        --font-libre: 'Libre Baskerville', sans-serif;
+        --font-teachers: 'Teachers', sans-serif;
+        --color-verde-escuro: #152409;
+        --color-laranja-claro: #f4efe5;
+        --color-laranja-pastel: #ffd580;
+        --color-cinza-escuro: #2e2e28;
+        --color-verde-acizentado: #163943;
+        --color-very-dark-blue: hsl(240, 100%, 5%);
+        --color-rose-50: #7b284f;
+        --color-rose-800: #fff5fa;
+        }
+    </style>
+</head>
+
+<body class="bg-cinza-escuro">
+    <!-- Botão do menu mobile -->
+    <div class="w-6 absolute z-50 top-1/30 left-9/10 sm:hidden">
+        <button class="cursor-pointer" id="menu-btn">
+            <div class="">
+                <div id="hambuguer1" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+                <div id="hambuguer2" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+                <div id="hambuguer3" class="w-6 h-1 mt-[4px] rounded-full bg-black block transition-all duration-300">
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <main id="main">
+        <section id="smooth-wrapper">
+            <div id="smooth-content">
+                <!-- HEADER -->
+                <header class="w-full h-[89px] bg-verde-escuro" id="header">
+                    <!-- Menu lateral mobile -->
+                    <div class="w-full h-screen fixed transform transition duration-500 ease-in-out border border-t-0 border-b-0 border-black translate-x-full md:hidden right-0 text-laranja-claro top-0 z-40 bg-verde-escuro"
+                        id="aside">
+                        <!-- Logo in Sidebar -->
+                        <a href="index.html"
+                            class="absolute top-0 left-0 p-4 ml-4 flex flex-row items-center gap-4 cursor-pointer">
+                            <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                            <h1 class="font-libre text-4xl text-laranja-claro">EcoNnect</h1>
+                        </a>
+
+                        <div class="h-full w-full flex flex-col justify-center items-center gap-8">
+                            <div
+                                class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                                <a href="index.html" id="mobile-inicio">
+                                    <div class="w-full">
+                                        <h1 class="px-3 py-4 text-center font-libre text-xl">Inicio</h1>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div
+                                class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300">
+                                <a href="sobre.html" id="mobile-sobre">
+                                    <div class="w-full">
+                                        <h1 class="px-3 py-4 text-center font-libre text-xl">Sobre</h1>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="w-2/3 cursor-pointer bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300"
+                                id="mobile-btn-idioma">
+                                <div class="w-full flex justify-center items-center gap-3 py-4">
+                                    <img src="img/11654500.png" alt="Idioma" class="size-6" id="mobile-img-idioma">
+                                    <h1 class="font-libre text-xl" id="mobile-txt-idioma">Troca de idioma</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo do header -->
+                    <div class="w-full h-full flex flex-row justify-between">
+                        <div class="flex flex-row">
+                            <div class="py-4 ml-8 mr-5">
+                                <a href="index.html">
+                                    <img src="img/sla.png" alt="Logo EcoNnect" class="h-14">
+                                </a>
+                            </div>
+                            <div class="self-center text-white font-libre text-4xl text-laranja-claro">
+                                <a href="index.html">
+                                    <h1>EcoNnect</h1>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="md:flex md:flex-row gap-10 text-laranja-pastel text-xl self-center px-5 hidden">
+                            <div>
+                                <a href="index.html" id="inicio">Inicio</a>
+                            </div>
+                            <div>
+                                <a href="sobre.html" id="sobre">Sobre</a>
+                            </div>
+                            <div class="flex flex-row gap-1" id="btn-idioma">
+                                <div class="mt-1">
+                                    <button class="cursor-pointer">
+                                        <img src="img/11654500.png" alt="Idioma" class="size-5" id="img-idioma">
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="cursor-pointer" id="txt-idioma">Troca de idioma</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- HERO SECTION -->
+                <section class="relative h-[60vh] lg:h-[80vh] w-full overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-[url(img/background_problema.png)] bg-cover bg-center brightness-50">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-verde-escuro/80 via-transparent to-cinza-escuro">
+                    </div>
+
+                    <div class="relative h-full flex flex-col justify-center items-center text-center px-6">
+                        <h1 id="sobre-title"
+                            class="font-libre text-laranja-claro text-5xl lg:text-8xl mb-6 animate-title opacity-0 translate-y-10"
+                            style="animation: fadeInUp 1s forwards 0.5s;">
+                            Sobre <span class="text-laranja-pastel italic">Nós</span>
+                        </h1>
+                        <p id="sobre-subtitle"
+                            class="font-teachers text-laranja-claro text-lg lg:text-2xl max-w-3xl animate-text opacity-0 translate-y-10"
+                            style="animation: fadeInUp 1s forwards 0.8s;">
+                            Conectando pessoas, preservando o futuro. Nossa missão é transformar a consciência ambiental
+                            em ação prática.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- MISSION / VISION / VALUES -->
+                <section class="py-20 px-6 bg-cinza-escuro">
+                    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <!-- Mission -->
+                        <div
+                            class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-laranja-pastel/50 transition-all duration-300 group">
+                            <div
+                                class="w-16 h-16 bg-laranja-pastel/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-laranja-pastel/30 transition-colors">
+                                <svg class="w-8 h-8 text-laranja-pastel" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 id="missao-title" class="font-libre text-2xl text-laranja-claro mb-4">Missão</h3>
+                            <p id="missao-text" class="font-teachers text-laranja-claro/80 leading-relaxed">
+                                Inspirar e capacitar indivíduos a adotarem práticas sustentáveis, promovendo a harmonia
+                                entre o desenvolvimento humano e a preservação da natureza.
+                            </p>
+                        </div>
+
+                        <!-- Vision -->
+                        <div
+                            class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-laranja-pastel/50 transition-all duration-300 group">
+                            <div
+                                class="w-16 h-16 bg-laranja-pastel/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-laranja-pastel/30 transition-colors">
+                                <svg class="w-8 h-8 text-laranja-pastel" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 id="visao-title" class="font-libre text-2xl text-laranja-claro mb-4">Visão</h3>
+                            <p id="visao-text" class="font-teachers text-laranja-claro/80 leading-relaxed">
+                                Ser a principal plataforma global de educação e ação ambiental, criando uma rede
+                                conectada de defensores do planeta.
+                            </p>
+                        </div>
+
+                        <!-- Values -->
+                        <div
+                            class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-laranja-pastel/50 transition-all duration-300 group">
+                            <div
+                                class="w-16 h-16 bg-laranja-pastel/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-laranja-pastel/30 transition-colors">
+                                <svg class="w-8 h-8 text-laranja-pastel" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 id="valores-title" class="font-libre text-2xl text-laranja-claro mb-4">Valores</h3>
+                            <p id="valores-text" class="font-teachers text-laranja-claro/80 leading-relaxed">
+                                Integridade, Inovação, Colaboração, Responsabilidade e Paixão pelo Planeta.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OUR STORY -->
+                <section class="py-20 px-6 bg-verde-escuro relative overflow-hidden">
+                    <!-- Background blobs -->
+                    <div
+                        class="absolute top-0 right-0 w-[500px] h-[500px] bg-laranja-pastel/5 rounded-full blur-[100px] pointer-events-none">
+                    </div>
+
+                    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
+                        <div class="w-full lg:w-1/2">
+                            <div class="relative">
+                                <div
+                                    class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-laranja-pastel/50 rounded-tl-3xl">
+                                </div>
+                                <div
+                                    class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-laranja-pastel/50 rounded-br-3xl">
+                                </div>
+                                <img src="img/image.png" alt="Nossa História"
+                                    class="rounded-2xl w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <h2 id="historia-title" class="font-libre text-4xl lg:text-5xl text-laranja-claro mb-8">
+                                Nossa <span class="text-laranja-pastel italic">História</span></h2>
+                            <div class="space-y-6 font-teachers text-laranja-claro/90 text-lg leading-relaxed">
+                                <p id="historia-text-1">
+                                    Tudo começou com uma simples pergunta: "Como podemos tornar a educação ambiental
+                                    acessível e engajadora para todos?"
+                                </p>
+                                <p id="historia-text-2">
+                                    Fundada em 2024, a EcoNnect nasceu da união de estudantes apaixonados por tecnologia
+                                    e sustentabilidade. Percebemos que, embora a informação estivesse disponível, ela
+                                    muitas vezes era complexa ou desconectada da realidade das pessoas.
+                                </p>
+                                <p id="historia-text-3">
+                                    Decidimos criar uma plataforma que não apenas informasse, mas que inspirasse ação.
+                                    Hoje, somos uma comunidade crescente dedicada a fazer a diferença, um passo de cada
+                                    vez.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TEAM SECTION -->
+                <section class="py-24 px-6 bg-cinza-escuro">
+                    <div class="max-w-7xl mx-auto text-center">
+                        <h2 id="equipe-title" class="font-libre text-4xl lg:text-5xl text-laranja-claro mb-16">Quem Faz
+                            <span class="text-laranja-pastel italic">Acontecer</span>
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <!-- Member 1 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                                <img src="img/Ryan.jpg" alt="Membro 1"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 class="font-libre text-2xl text-laranja-claro">Ryan</h3>
+                                    <p class="font-teachers text-laranja-pastel text-sm uppercase tracking-wider mt-1">
+                                        Fundador & CEO</p>
+                                </div>
+                            </div>
+
+                            <!-- Member 2 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                                <img src="img/davi.jpg" alt="Membro 2"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 class="font-libre text-2xl text-laranja-claro">Davi</h3>
+                                    <p class="font-teachers text-laranja-pastel text-sm uppercase tracking-wider mt-1">
+                                        Diretor de Tecnologia</p>
+                                </div>
+                            </div>
+
+                            <!-- Member 3 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                                <img src="img/clara.png" alt="Membro 3"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 class="font-libre text-2xl text-laranja-claro">Clara</h3>
+                                    <p class="font-teachers text-laranja-pastel text-sm uppercase tracking-wider mt-1">
+                                        Designer Chefe</p>
+                                </div>
+                            </div>
+
+                            <!-- Member 4 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-[3/4]">
+                                <img src="img/livia.png" alt="Membro 4"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 class="font-libre text-2xl text-laranja-claro">Livia</h3>
+                                    <p class="font-teachers text-laranja-pastel text-sm uppercase tracking-wider mt-1">
+                                        Gerente de Conteúdo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FOOTER -->
+                <section class="section-footer bg-black py-12">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <h2 id="footer-title"
+                            class="footer-text text-center text-laranja-claro font-libre italic text-4xl lg:text-5xl mb-12">
+                            Contate-nos</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                            <!-- Phone Section -->
+                            <div class="text-center">
+                                <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Phone</h3>
+                                <p class="footer-text text-laranja-claro font-teachers text-2xl">+55 (12) 99745-3210</p>
+                            </div>
+
+                            <!-- Email Section -->
+                            <div class="text-center">
+                                <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Email</h3>
+                                <p class="footer-text text-laranja-claro font-teachers text-lg lg:text-2xl">
+                                    contato@econnect.com</p>
+                            </div>
+
+                            <!-- Social Section -->
+                            <div class="text-center">
+                                <h3 class="footer-text text-laranja-pastel font-teachers text-xl mb-3">Social</h3>
+                                <div class="flex justify-center gap-4">
+                                    <a href="#" class="text-laranja-claro hover:text-laranja-pastel transition-colors">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="text-laranja-claro hover:text-laranja-pastel transition-colors">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+
+    <!-- Site Scripts -->
+    <script src="index.js" defer></script>
+    <script>
+        const isMobile = window.innerWidth < 1024;
+        const script = document.createElement('script');
+        script.src = isMobile ? 'scrollanimate-mobile.js' : 'scrollanimate-desktop.js';
+        document.body.appendChild(script);
+
+        // Simple fade-in animation for title
+        document.addEventListener('DOMContentLoaded', () => {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+
+</html>

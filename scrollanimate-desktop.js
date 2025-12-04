@@ -112,9 +112,9 @@ window.addEventListener('load', () => {
     // Configuração dos Cards (Desktop)
     var cards = document.querySelectorAll(".cards");
 
-    // Desabilitar interação dos cards inicialmente
+    // Habilitar interação dos cards (hover funciona sempre)
     cards.forEach(card => {
-        card.style.pointerEvents = 'none';
+        card.style.pointerEvents = 'auto';
     });
 
     for (var i = 0; i < cards.length; i++) {
@@ -226,78 +226,6 @@ window.addEventListener('load', () => {
             "-=0.4"
         )
         .to("#earth-bar", { width: "85%", duration: 2, ease: "power2.out" }, "-=0.4");
-
-    // Animação para a Seção Onde Ocorre
-    const tlOnde = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#onde-ocorre",
-            start: "top 75%",
-            toggleActions: "play none none reverse"
-        }
-    });
-
-    tlOnde.fromTo(".animate-onde-title",
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-    )
-        .fromTo(".animate-onde-text",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-            "-=0.4"
-        )
-        .fromTo("#card-slider .cards",
-            { y: 30, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                stagger: 0.3,
-                ease: "power3.out",
-                onComplete: function () {
-                    // Habilitar interação dos cards após animação
-                    document.querySelectorAll("#card-slider .cards").forEach(card => {
-                        card.style.pointerEvents = 'auto';
-                    });
-                }
-            },
-            "-=0.4"
-        );
-
-    // Animação para a Seção Como Resolver
-    const tlResolver = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#como-resolver",
-            start: "top 75%",
-            toggleActions: "play none none reverse"
-        }
-    });
-
-    tlResolver.fromTo(".animate-resolver-title",
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-    )
-        .fromTo(".animate-resolver-text",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-            "-=0.4"
-        )
-        .fromTo("#card-slider-2 .cards",
-            { y: 30, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                stagger: 0.3,
-                ease: "power3.out",
-                onComplete: function () {
-                    // Habilitar interação dos cards após animação
-                    document.querySelectorAll("#card-slider-2 .cards").forEach(card => {
-                        card.style.pointerEvents = 'auto';
-                    });
-                }
-            },
-            "-=0.4"
-        );
 
     // Contador numérico animado
     let earthObj = { value: 0 };

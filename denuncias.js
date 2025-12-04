@@ -1,44 +1,68 @@
-const denuncias = [
-    {
-        title: "Linha Verde (IBAMA)",
-        description: "Canal oficial do IBAMA para denúncias de crimes ambientais em todo o território nacional. Atendimento por telefone ou internet.",
-        image: "img/close-up-homem-segurando-megafone.jpg",
-        link: "https://www.gov.br/ibama/pt-br/canais_atendimento/linha-verde"
-    },
-    {
-        title: "Disque Denúncia (181)",
-        description: "Serviço unificado para denúncias anônimas de diversos crimes, incluindo agressões ao meio ambiente, queimadas e maus-tratos a animais.",
-        image: "img/aridas.png",
-        link: "https://disquedenuncia181.es.gov.br/"
-    },
-    {
-        title: "Polícia Ambiental",
-        description: "Acione a Polícia Militar Ambiental do seu estado para flagrantes de desmatamento, caça ilegal e poluição.",
-        image: "img/urbano.png",
-        link: "https://www.policiamilitar.sp.gov.br/unidades/ambiental/"
-    },
-    {
-        title: "Ministério Público",
-        description: "O MP recebe denúncias formais sobre danos ambientais coletivos e pode iniciar ações civis públicas.",
-        image: "img/instituicao.jpg",
-        link: "https://www.mpf.mp.br/servicos/sac"
-    }
-];
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('cards-container');
-    const template = document.getElementById('card-template');
+    // Animação do Hero
+    const tlHero = gsap.timeline();
 
-    denuncias.forEach(item => {
-        const clone = template.content.cloneNode(true);
+    let splitTitle = new SplitText(".econnect", { type: "chars" });
+    let splitSubtitle = new SplitText(".subtitle-educacao", { type: "words, chars" });
+    let splitDesc = new SplitText(".inspirando", { type: "lines" });
 
-        const bgDiv = clone.querySelector('.card-bg');
-        bgDiv.style.backgroundImage = `url('${item.image}')`;
+    tlHero.from(splitSubtitle.chars, {
+        duration: 0.8,
+        opacity: 0,
+        y: 20,
+        stagger: 0.02,
+        ease: "power3.out"
+    })
+        .from(splitTitle.chars, {
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            stagger: 0.05,
+            ease: "back.out(1.7)"
+        }, "-=0.4")
+        .from(splitDesc.lines, {
+            duration: 0.8,
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            ease: "power3.out"
+        }, "-=0.6");
 
-        clone.querySelector('.card-title').textContent = item.title;
-        clone.querySelector('.card-desc').textContent = item.description;
-        clone.querySelector('.card-link').href = item.link;
+    // Animação das Seções de Features (Zig-Zag)
+    const features = document.querySelectorAll('.feature-section');
 
-        container.appendChild(clone);
+    features.forEach((section, index) => {
+        const textWrapper = section.querySelector('.feature-text-wrapper');
+        const imageWrapper = section.querySelector('.feature-image-wrapper');
+
+        // Configuração do ScrollTrigger para cada seção
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+            onEnter: () => {
+                // Animação do Texto
+                gsap.to(textWrapper, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+
+                // Animação da Imagem (com leve delay)
+                gsap.to(imageWrapper, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    delay: 0.2,
+                    ease: "power3.out"
+                });
+            }
+        });
     });
+
+    // Animação do Footer (Reutilizada do index se necessário, mas já está no scrollanimate)
+    // Se precisar de lógica específica para o footer aqui, adicione.
 });
