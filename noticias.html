@@ -203,9 +203,12 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="noticias.js"></script>
-    <script src="anime.js"></script>
-    <script src="scrollanimate-desktop.js"></script>
-    <script src="scrollanimate-mobile.js"></script>
+    <script>
+        const isMobile = window.innerWidth < 1024;
+        const script = document.createElement('script');
+        script.src = isMobile ? 'scrollanimate-mobile.js' : 'scrollanimate-desktop.js';
+        document.body.appendChild(script);
+    </script>
 </body>
 
 </html>
