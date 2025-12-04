@@ -82,10 +82,40 @@ window.addEventListener('load', () => {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 ease: "none",
             }, 0.5);
+
+        // Animação do conteúdo da Intro (Fade In/Up)
+        // Apenas Slide 1 - Animação com ScrollTrigger igual à Pegada Ecológica
+        const tlIntro = gsap.timeline({
+            scrollTrigger: {
+                trigger: secoes[0],
+                start: "top 75%",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        tlIntro.fromTo(secoes[0].querySelector(".animate-intro-title"),
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+        )
+            .fromTo(secoes[0].querySelectorAll(".animate-intro-text"),
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+                "-=0.4"
+            )
+            .fromTo(secoes[0].querySelector(".animate-intro-img"),
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+                "-=0.4"
+            );
     }
 
     // Configuração dos Cards (Desktop)
     var cards = document.querySelectorAll(".cards");
+
+    // Desabilitar interação dos cards inicialmente
+    cards.forEach(card => {
+        card.style.pointerEvents = 'none';
+    });
 
     for (var i = 0; i < cards.length; i++) {
         cards[i].addEventListener("mouseenter", function () {
@@ -196,6 +226,78 @@ window.addEventListener('load', () => {
             "-=0.4"
         )
         .to("#earth-bar", { width: "85%", duration: 2, ease: "power2.out" }, "-=0.4");
+
+    // Animação para a Seção Onde Ocorre
+    const tlOnde = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#onde-ocorre",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlOnde.fromTo(".animate-onde-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-onde-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        )
+        .fromTo("#card-slider .cards",
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.3,
+                ease: "power3.out",
+                onComplete: function () {
+                    // Habilitar interação dos cards após animação
+                    document.querySelectorAll("#card-slider .cards").forEach(card => {
+                        card.style.pointerEvents = 'auto';
+                    });
+                }
+            },
+            "-=0.4"
+        );
+
+    // Animação para a Seção Como Resolver
+    const tlResolver = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#como-resolver",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlResolver.fromTo(".animate-resolver-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-resolver-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        )
+        .fromTo("#card-slider-2 .cards",
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.3,
+                ease: "power3.out",
+                onComplete: function () {
+                    // Habilitar interação dos cards após animação
+                    document.querySelectorAll("#card-slider-2 .cards").forEach(card => {
+                        card.style.pointerEvents = 'auto';
+                    });
+                }
+            },
+            "-=0.4"
+        );
 
     // Contador numérico animado
     let earthObj = { value: 0 };

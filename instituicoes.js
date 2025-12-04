@@ -26,7 +26,7 @@ const instituicoes = [
     {
         title: "Instituto Socioambiental (ISA)",
         description: "O ISA propõe soluções integradas a questões sociais e ambientais com foco central na defesa de bens e direitos sociais, coletivos e difusos.",
-        image: "https://www.socioambiental.org/sites/default/files/styles/large/public/2024-03/04%20Banner%20Site%20ISA%201360x600%20-%202.png?itok=K9vhqx6A",
+        image: "https://media.licdn.com/dms/image/v2/C4D12AQGFdi8KT95c2w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520250659440?e=2147483647&v=beta&t=XL5qFQg82zN8U5PWz2xTw-hP96Rh3rdkbwQpyik1zps",
         link: "https://www.socioambiental.org/",
         location: "São Paulo, SP",
         contact: "(11) 3515-8900"

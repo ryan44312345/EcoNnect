@@ -91,6 +91,33 @@ window.addEventListener('load', () => {
                 index - 1 // Sequencia as animações
             );
         }
+
+
+        // Animação do conteúdo apenas na primeira seção com ScrollTrigger
+        if (index === 0) {
+            const tlIntroMobile = gsap.timeline({
+                scrollTrigger: {
+                    trigger: secao,
+                    start: "top 75%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            tlIntroMobile.fromTo(secao.querySelector(".animate-intro-title"),
+                { y: 50, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+            )
+                .fromTo(secao.querySelectorAll(".animate-intro-text"),
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+                    "-=0.4"
+                )
+                .fromTo(secao.querySelector(".animate-intro-img"),
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+                    "-=0.4"
+                );
+        }
     });
 
     // Lógica do Carrossel 3D Manual
@@ -287,6 +314,44 @@ window.addEventListener('load', () => {
             "-=0.4"
         )
         .to("#earth-bar", { width: "85%", duration: 2, ease: "power2.out" }, "-=0.4");
+
+    // Animação para a Seção Onde Ocorre
+    const tlOnde = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#onde-ocorre",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlOnde.fromTo(".animate-onde-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-onde-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        );
+
+    // Animação para a Seção Como Resolver
+    const tlResolver = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#como-resolver",
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    tlResolver.fromTo(".animate-resolver-title",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    )
+        .fromTo(".animate-resolver-text",
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            "-=0.4"
+        );
 
     // Contador numérico animado
     let earthObj = { value: 0 };
